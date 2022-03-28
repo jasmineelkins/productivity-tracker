@@ -10,3 +10,4 @@ DELIVERABLES:
 - User can save notes
 - User can start a timer (embed Clockify time tracker??)
 - User can see activity levels tracked over time
+- User can click on an element's "maximize" button to make that element full screen (React Router)
