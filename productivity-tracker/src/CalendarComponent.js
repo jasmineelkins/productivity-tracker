@@ -6,7 +6,7 @@ function CalendarComponent(props) {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div>
+    <div className="griditem item3">
       <div className="calendarContainer">
         <Calendar onChange={setDate} value={date} />
       </div>

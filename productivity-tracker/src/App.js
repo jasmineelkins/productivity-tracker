@@ -18,10 +18,19 @@ function App() {
       .catch((error) => console.log(error.message));
   }, []);
 
+  function addNewTaskToList(newTask) {
+    const updatedTaskList = [...taskList, newTask];
+    setTaskList(updatedTaskList);
+  }
+
   return (
-    <div className="App" id="gridContainer">
+    <div className="App gridContainer">
       <Header />
-      <ToDoList taskList={taskList} setTaskList={setTaskList} />
+      <ToDoList
+        taskList={taskList}
+        setTaskList={setTaskList}
+        addNewTaskToList={addNewTaskToList}
+      />
       <CalendarComponent />
       <Notes />
       <TimeTracker />

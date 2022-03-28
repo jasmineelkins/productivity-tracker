@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Header(props) {
   return (
     <>
-      <header>PRODUCTIVITY TRACKER</header>
+      <header className="griditem item1">PRODUCTIVITY TRACKER</header>
     </>
   );
 }

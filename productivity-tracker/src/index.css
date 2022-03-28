@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+  margin: 30px;
 }
 
 code {
@@ -23,12 +24,48 @@ code {
     monospace;
 }
 
-#gridContainer {
-  display: grid;
-}
-
 Header {
   font-size: 30px;
+}
+
+.item1 {
+  grid-area: header;
+}
+
+.item2 {
+  grid-area: tasks;
+}
+
+.item3 {
+  grid-area: calendar;
+}
+
+.item4 {
+  grid-area: notes;
+}
+
+.item5 {
+  grid-area: timer;
+}
+
+.item6 {
+  grid-area: activity;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header"
+    "tasks tasks calendar"
+    "tasks tasks calendar"
+    "tasks tasks timer"
+    "notes notes timer"
+    "notes notes ."
+    "notes notes ."
+    "activity activity activity";
+  gap: 10px;
 }
 
 /* TO DO LIST ----------------------------------------------------------------------------- */
@@ -82,7 +119,12 @@ Header {
   margin: 20px;
 }
 
+/* TIME TRACKER --------------------------------------------------------------------------- */
+.timeTrackerContainer img {
+  width: 100%;
+}
+
 /* ACTIVITY LEVEL TRACKER ----------------------------------------------------------------- */
 .activityTrackerContainer img {
-  width: 50%;
+  width: 100%;
 }

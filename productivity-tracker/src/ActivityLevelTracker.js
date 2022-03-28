@@ -3,7 +3,7 @@ import img from "./ActivityLevelTrackerPlaceholder.png";
 
 function ActivityLevelTracker(props) {
   return (
-    <div className="activityTrackerContainer">
+    <div className="activityTrackerContainer griditem item6">
       <img src={img} alt="Activity tracker placeholder" />
     </div>
   );

@@ -29,6 +29,18 @@
       "name": "Floss",
       "priority": "normal",
       "completed": "false"
+    },
+    {
+      "name": "New Task",
+      "priority": "normal",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "name": "new task #2",
+      "priority": "normal",
+      "completed": false,
+      "id": 7
     }
   ]
 }
