@@ -12,11 +12,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #333;
   color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#gridContainer {
+  display: grid;
 }
 
 Header {
@@ -29,6 +37,7 @@ Header {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  /* width: 100%; */
 }
 
 .newTaskForm {
@@ -43,12 +52,37 @@ Header {
 .task {
   background-color: teal;
   display: flex;
-  gap: 40px;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #333;
+}
+
+.taskName {
+  width: 150px;
+  text-align: left;
 }
 
 .deleteButton {
-  background-color: tomato;
-  border-radius: 50%;
-  padding: 3px 6px;
+  background-color: teal;
   border: none;
+  color: white;
+}
+
+.deleteButton:hover {
+  color: tomato;
+}
+
+/* CALENDAR -----------------------------------------------------------------------------  */
+.calendarContainer {
+  margin: 20px;
+}
+
+/* NOTES -----------------------------------------------------------------------------  */
+.notesContainer {
+  margin: 20px;
+}
+
+/* ACTIVITY LEVEL TRACKER ----------------------------------------------------------------- */
+.activityTrackerContainer img {
+  width: 50%;
 }

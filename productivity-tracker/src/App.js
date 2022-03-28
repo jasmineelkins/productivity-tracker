@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import ToDoList from "./ToDoList";
-import Calendar from "./Calendar";
+import CalendarComponent from "./CalendarComponent";
 import Notes from "./Notes";
 import ActivityLevelTracker from "./ActivityLevelTracker";
 import TimeTracker from "./TimeTracker";
@@ -19,10 +19,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App" id="gridContainer">
       <Header />
       <ToDoList taskList={taskList} setTaskList={setTaskList} />
-      <Calendar />
+      <CalendarComponent />
       <Notes />
       <TimeTracker />
       <ActivityLevelTracker />

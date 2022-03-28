@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaTrashAlt } from "react-icons/fa";
 
 function Task({ task, taskList, setTaskList }) {
   function deleteTask() {
@@ -6,7 +7,7 @@ function Task({ task, taskList, setTaskList }) {
   }
   return (
     <div className="task">
-      <span>{task.name}</span>
+      <span className="taskName">{task.name}</span>
       {/* <span>{task.priority}</span> */}
 
       <select name="selectList" id="selectList">
@@ -15,10 +16,10 @@ function Task({ task, taskList, setTaskList }) {
         <option value="low">Low</option>
       </select>
 
-      <span>{task.completed}</span>
+      <input type="checkbox"></input>
 
       <button id="test" className="deleteButton" onClick={() => deleteTask()}>
-        X
+        <FaTrashAlt />
       </button>
     </div>
   );
