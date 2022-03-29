@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Feed the cat",
+      "priority": "normal",
+      "completed": "false"
+    },
+    {
+      "id": 2,
+      "name": "Water the plants",
+      "priority": "normal",
+      "completed": "false"
+    },
+    {
+      "id": 3,
+      "name": "Finish homework",
+      "priority": "normal",
+      "completed": "false"
+    },
+    {
+      "id": 4,
+      "name": "Call mom",
+      "priority": "normal",
+      "completed": "false"
+    },
+    {
+      "id": 5,
+      "name": "Floss",
+      "priority": "normal",
+      "completed": "false"
+    },
+    {
+      "name": "New Task",
+      "priority": "normal",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "name": "new task #2",
+      "priority": "normal",
+      "completed": false,
+      "id": 7
+    }
+  ]
+}
