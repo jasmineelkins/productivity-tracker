@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Calendar from "@ericz1803/react-google-calendar";
 
 function EmbeddedGoogleCalendar(props) {

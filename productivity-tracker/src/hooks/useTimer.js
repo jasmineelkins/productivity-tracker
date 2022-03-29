@@ -16,6 +16,7 @@ const useTimer = (initialState = 0) => {
       setTimer((timer) => timer + 1);
     }, 1000);
   };
+
   const handlePause = () => {
     // pauses timer (toggle pause/resume??)
     // setInterval keeps calling itself until clearInterval is called
@@ -24,6 +25,7 @@ const useTimer = (initialState = 0) => {
     clearInterval(countRef.current);
     setIsPaused(false);
   };
+
   const handleResume = () => {
     // resumes timer from where it was paused
 
@@ -32,6 +34,7 @@ const useTimer = (initialState = 0) => {
       setTimer((timer) => timer + 1);
     }, 1000);
   };
+
   const handleReset = () => {
     // stops timer & resets everything to initial values
     // also submits tracked project to list??
@@ -42,6 +45,18 @@ const useTimer = (initialState = 0) => {
     setTimer(0);
   };
 
+  const formatTime = () => {
+    // displays time in 00:00:00 format
+    const getSeconds = `0${timer % 60}`.slice(-2);
+    const minutes = `${Math.floor(timer / 60)}`;
+    const getMinutes = `0${minutes % 60}`.slice(-2);
+    const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
+
+    return `${getHours} : ${getMinutes} : ${getSeconds}`;
+  };
+
+  const formattedTime = formatTime(timer);
+
   return {
     timer,
     isActive,
@@ -50,6 +65,7 @@ const useTimer = (initialState = 0) => {
     handlePause,
     handleResume,
     handleReset,
+    formattedTime,
   };
 };
 

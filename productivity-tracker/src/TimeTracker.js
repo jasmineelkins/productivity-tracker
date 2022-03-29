@@ -7,13 +7,7 @@ import img from "./TimeTrackerPlaceholder.png";
 import useTimer from "./hooks/useTimer";
 
 function TimeTracker(props) {
-  // set state for activity controlled input form:
-  const [activity, setActivity] = useState("");
-
-  // set state for completed timed activities list
-  const [activityList, setActivityList] = useState([]);
-
-  // import timer hook
+  // import Timer hook
   const {
     timer,
     isActive,
@@ -22,65 +16,72 @@ function TimeTracker(props) {
     handlePause,
     handleResume,
     handleReset,
+    formattedTime,
   } = useTimer(0);
 
-  const formatTime = () => {
-    // displays time in 00:00:00 format
-    const getSeconds = `0${timer % 60}`.slice(-2);
-    const minutes = `${Math.floor(timer / 60)}`;
-    const getMinutes = `0${minutes % 60}`.slice(-2);
-    const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
+  // set state for activity controlled input form:
+  const [activityInput, setActivityInput] = useState({
+    name: "",
+    time: "",
+  });
 
-    return `${getHours} : ${getMinutes} : ${getSeconds}`;
-  };
+  // set state for completed timed activities list
+  const [activityList, setActivityList] = useState([]);
 
   function handleChange(e) {
-    setActivity(e.target.value);
+    setActivityInput({ name: e.target.value, time: formattedTime });
   }
 
   function addActivityToList() {
-    setActivityList([...activityList, activity]);
+    setActivityList([...activityList, activityInput]);
+
+    console.log("activity: ", activityInput);
+    console.log("timer: ", formattedTime);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
+    addActivityToList();
+    console.log("activity list: ", activityList);
     // end timer & submit activity to list
+
+    setActivityInput("");
   }
 
   return (
     <div className="timeTrackerContainer griditem item5">
       {/* <img src={img} alt="Clockify screenshot placeholder"></img> */}
 
-      <div className="stopwatchContainer">
+      <div className="activityTrackerForm">
         <h3>Stopwatch</h3>
         <form className="activityForm" onSubmit={(e) => handleSubmit(e)}>
           <input
             name="name"
             placeholder="Track an activity"
             onChange={(e) => handleChange(e)}
-            value={activity}
+            value={activityInput.name}
           ></input>
           <input type="submit" value="Save" />
         </form>
-
-        <p>{formatTime(timer)}</p>
-
-        <div className="buttons">
-          {!isActive && !isPaused ? (
-            <button onClick={handleStart}>Start</button>
-          ) : isPaused ? (
-            <button onClick={handlePause}>Pause</button>
-          ) : (
-            <button onClick={handleResume}>Resume</button>
-          )}
-          <button onClick={handleReset} disabled={!isActive}>
-            Reset
-          </button>
-        </div>
       </div>
 
-      <TimedActivitiesOutput timer={timer} activity={activity} />
+      <p>{formattedTime}</p>
+
+      <div className="buttons">
+        {!isActive && !isPaused ? (
+          <button onClick={handleStart}>Start</button>
+        ) : isPaused ? (
+          <button onClick={handlePause}>Pause</button>
+        ) : (
+          <button onClick={handleResume}>Resume</button>
+        )}
+        <button onClick={handleReset} disabled={!isActive}>
+          Reset
+        </button>
+      </div>
+
+      <TimedActivitiesOutput activityList={activityList} />
     </div>
   );
 }
