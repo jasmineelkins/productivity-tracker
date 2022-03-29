@@ -26,6 +26,7 @@ code {
 
 Header {
   font-size: 30px;
+  text-align: center;
 }
 
 .item1 {
@@ -73,13 +74,12 @@ Header {
   border: 1px solid white;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  /* width: 100%; */
 }
 
 .newTaskForm {
   border: 1px solid cyan;
   padding: 20px;
+  text-align: center;
 }
 
 #taskList {
@@ -91,11 +91,12 @@ Header {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  margin: 2px;
   border: 1px solid #333;
 }
 
 .taskName {
-  width: 150px;
+  min-width: 120px;
   text-align: left;
 }
 
@@ -113,6 +114,14 @@ Header {
 .calendarContainer {
   margin: 20px;
 }
+
+.item3 {
+  text-align: center;
+}
+
+/* .calendar {
+  color: white;
+} */
 
 /* NOTES -----------------------------------------------------------------------------  */
 .notesContainer {
