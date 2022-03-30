@@ -10,31 +10,36 @@
       "id": 2,
       "name": "Water the plants",
       "priority": "normal",
-      "completed": "false"
+      "completed": "false",
+      "notes": "asap"
     },
     {
       "id": 3,
       "name": "Finish homework",
       "priority": "normal",
-      "completed": "false"
+      "completed": "false",
+      "notes": "new note"
     },
     {
       "id": 4,
       "name": "Call mom",
       "priority": "normal",
-      "completed": "false"
+      "completed": "false",
+      "notes": "now"
     },
     {
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": "false"
+      "completed": "false",
+      "notes": "later"
     },
     {
       "name": "New Task",
       "priority": "normal",
       "completed": false,
-      "id": 6
+      "id": 6,
+      "notes": ""
     },
     {
       "name": "task",

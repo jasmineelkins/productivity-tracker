@@ -9,6 +9,7 @@ import TimeTracker from "./TimeTracker";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
+  const [notesDisplay, setNotesDisplay] = useState({})
 
   useEffect(() => {
     fetch(`http://localhost:3000/tasks`)
@@ -22,6 +23,11 @@ function App() {
     setTaskList(updatedTaskList);
   }
 
+  function updateNotes(updatedTask) {
+    setNotesDisplay(updatedTask)
+  }
+
+
   return (
     <div className="App gridContainer">
       <Header />
@@ -29,9 +35,10 @@ function App() {
         taskList={taskList}
         setTaskList={setTaskList}
         addNewTaskToList={addNewTaskToList}
+        setNotesDisplay={setNotesDisplay}
       />
       <CalendarComponent />
-      <Notes />
+      <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
       <TimeTracker />
       <ActivityLevelTracker />
     </div>

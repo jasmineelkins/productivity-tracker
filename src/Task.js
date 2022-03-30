@@ -8,6 +8,7 @@ function Task({
   deleteTaskFromList,
   updateTaskInList,
   addTaskToList,
+  setNotesDisplay,
 }) {
   function updateTask() {
     // PATCH request
@@ -26,9 +27,13 @@ function Task({
     deleteTaskFromList(taskID);
   }
 
+  function handleNotesDisplay() {
+    setNotesDisplay(task)
+  }
+
   return (
     <div className="task">
-      <span className="taskName">{task.name}</span>
+      <span className="taskName" onClick={handleNotesDisplay}>{task.name}</span>
       {/* <span>{task.priority}</span> */}
 
       <select
