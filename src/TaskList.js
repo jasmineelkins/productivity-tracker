@@ -7,10 +7,15 @@ function TaskList({ taskList, setTaskList }) {
     setTaskList(updatedListToDisplay);
   }
 
-  function updateTaskInList(taskID, dropdownChoice, isChecked) {
+  function updateTaskInList(taskID, dropdownChoice, isChecked, currentDate) {
     const updatedListToDisplay = taskList.map((task) => {
       if (task.id === taskID) {
-        return { ...task, priority: dropdownChoice, completed: isChecked };
+        return {
+          ...task,
+          priority: dropdownChoice,
+          completed: isChecked,
+          dateCompleted: currentDate,
+        };
       } else {
         return task;
       }

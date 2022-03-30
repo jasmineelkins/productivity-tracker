@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
+// import useCurrentDate from "./hooks/useCurrentDate";
 
 function Task({ task, deleteTaskFromList, updateTaskInList }) {
   const [dropdownChoice, setDropdownChoice] = useState(task.priority);
   const [isChecked, setIsChecked] = useState(task.completed);
+
+  // import useCurrentDate hook
+  // const { currentDate, handleDate } = useCurrentDate();
+
+  const completedStatusClass = isChecked ? "taskName completed" : "taskName";
+  const [currentDate, setDate] = useState(null);
+  // const handleDate = () => {
+  //   let date = new Date().toLocaleDateString();
+  //   setDate(date);
+  // };
 
   useEffect(() => {
     fetch(`http://localhost:3000/tasks/${task.id}`, {
@@ -11,6 +22,7 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3002",
       },
       body: JSON.stringify({
         priority: dropdownChoice,
@@ -29,17 +41,19 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3002",
       },
       body: JSON.stringify({
         completed: isChecked,
+        dateCompleted: currentDate,
       }),
     })
       .then((res) => res.json())
       // .then((data) => console.log("PATCH data 2: ", data))
       .catch((error) => console.log(error.message));
 
-    updateTaskInList(task.id, isChecked);
-  }, [isChecked]);
+    updateTaskInList(task.id, isChecked, currentDate);
+  }, [isChecked, currentDate]);
 
   function deleteTask(taskID) {
     fetch(`http://localhost:3000/tasks/${taskID}`, {
@@ -52,7 +66,16 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
     deleteTaskFromList(taskID);
   }
 
-  const completedStatusClass = isChecked ? "taskName completed" : "taskName";
+  function handleClick(e) {
+    setIsChecked(!isChecked);
+    console.log(isChecked);
+
+    // also add date clicked:
+    // handleDate();
+    let date = new Date().toLocaleDateString();
+    setDate(date);
+    console.log(currentDate);
+  }
 
   return (
     <div className="task">
@@ -71,7 +94,7 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
 
       <input
         type="checkbox"
-        onChange={() => setIsChecked(!isChecked)}
+        onChange={(e) => handleClick(e)}
         checked={isChecked}
       ></input>
 

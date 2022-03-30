@@ -6,9 +6,11 @@ import CalendarComponent from "./CalendarComponent";
 import Notes from "./Notes";
 import ActivityLevelTracker from "./ActivityLevelTracker";
 import TimeTracker from "./TimeTracker";
+import GetDate from "./onClickForDate";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
+  const [completedTasks, setCompletedTasks] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:3000/tasks`)
@@ -22,6 +24,9 @@ function App() {
     setTaskList(updatedTaskList);
   }
 
+  const completedTaskList = taskList.filter((task) => task.completed === true);
+  // setCompletedTasks(completedTaskList);
+
   return (
     <div className="App gridContainer">
       <Header />
@@ -33,7 +38,8 @@ function App() {
       <CalendarComponent />
       <Notes />
       <TimeTracker />
-      <ActivityLevelTracker />
+      <ActivityLevelTracker completedTaskList={completedTaskList} />
+      <GetDate />
     </div>
   );
 }

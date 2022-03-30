@@ -4,43 +4,50 @@
       "id": 1,
       "name": "Feed the cat",
       "priority": "normal",
-      "completed": true
+      "completed": false,
+      "dateCompleted": null
     },
     {
       "id": 2,
       "name": "Water the plants",
       "priority": "low",
-      "completed": false
+      "completed": false,
+      "dateCompleted": null
     },
     {
       "id": 3,
       "name": "Finish homework",
       "priority": "normal",
-      "completed": false
+      "completed": true,
+      "dateCompleted": null
     },
     {
       "id": 4,
       "name": "Call mom",
       "priority": "normal",
-      "completed": false
+      "completed": false,
+      "dateCompleted": null
     },
     {
       "id": 5,
       "name": "Floss",
-      "priority": "high",
-      "completed": false
+      "priority": "normal",
+      "completed": false,
+      "dateCompleted": null
     },
     {
       "name": "New Task",
       "priority": "low",
-      "completed": false,
-      "id": 6
+      "completed": true,
+      "id": 6,
+      "dateCompleted": null
     },
     {
       "name": "Task",
-      "priority": "low",
+      "priority": "normal",
       "completed": false,
-      "id": 7
+      "id": 7,
+      "dateCompleted": null
     }
   ]
 }

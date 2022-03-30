@@ -23,6 +23,7 @@ function NewTaskForm({
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3002",
       },
       body: JSON.stringify({
         name: name,
