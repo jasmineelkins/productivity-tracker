@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Feed the cat",
       "priority": "normal",
-      "completed": false
+      "completed": true
     },
     {
       "id": 2,

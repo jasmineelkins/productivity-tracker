@@ -52,9 +52,11 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
     deleteTaskFromList(taskID);
   }
 
+  const completedStatusClass = isChecked ? "taskName completed" : "taskName";
+
   return (
     <div className="task">
-      <span className="taskName">{task.name}</span>
+      <span className={completedStatusClass}>{task.name}</span>
 
       <select
         name="selectList"
@@ -73,11 +75,7 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
         checked={isChecked}
       ></input>
 
-      <button
-        id="test"
-        className="deleteButton"
-        onClick={() => deleteTask(task.id)}
-      >
+      <button className="deleteButton" onClick={() => deleteTask(task.id)}>
         <FaTrashAlt />
       </button>
     </div>

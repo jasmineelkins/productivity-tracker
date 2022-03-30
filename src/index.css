@@ -100,6 +100,12 @@ Header {
   text-align: left;
 }
 
+.taskName.completed {
+  text-decoration: line-through;
+  font-style: italic;
+  color: #333;
+}
+
 .deleteButton {
   background-color: teal;
   border: none;
@@ -110,9 +116,37 @@ Header {
   color: tomato;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom checkbox appearance */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 1.5px solid #bbbbbb;
+  border-radius: 6px;
+  background-color: #e7e6e7;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: tomato;
+}
+
+input[type="checkbox"]:focus {
+  outline: none !important;
+}
+
 /* CALENDAR -----------------------------------------------------------------------------  */
 .calendarContainer {
   margin: 20px;
+  border: 2px solid green;
+  /* padding: 20px; */
 }
 
 .item3 {
@@ -129,11 +163,78 @@ Header {
 }
 
 /* TIME TRACKER --------------------------------------------------------------------------- */
-.timeTrackerContainer img {
+.timeTrackerContainer {
   width: 100%;
+  border: 1px solid red;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.timeTrackerContainer input {
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.timeTrackerContainer .btn {
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.timeTrackerContainer .btn:hover {
+  background-color: rgb(94, 93, 93);
+}
+
+.btn.start,
+.btn.resume {
+  background-color: rgb(199, 249, 124);
+}
+
+.btn.pause {
+  background-color: tomato;
+}
+
+.btn.save {
+  background-color: rgb(28, 196, 196);
+}
+
+.timedActivityOutputContainer {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  margin-top: 10px;
+}
+
+.timedActivity {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ACTIVITY LEVEL TRACKER ----------------------------------------------------------------- */
 .activityTrackerContainer img {
   width: 100%;
+}
+
+.react-calendar-heatmap .color-scale-1 {
+  fill: #f70808;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #f75b07e2;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #ffa200;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #ffc505;
+}
+.react-calendar-heatmap .color-scale-5 {
+  fill: #d9fa01d4;
+}
+.react-calendar-heatmap .color-scale-6 {
+  fill: #68bd1e;
+}
+.react-calendar-heatmap .color-scale-7 {
+  fill: #0a410d;
 }
