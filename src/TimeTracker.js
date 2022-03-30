@@ -46,13 +46,12 @@ function TimeTracker(props) {
     console.log("activity list: ", activityList);
     // end timer & submit activity to list
 
-    setActivityInput("");
+    setActivityInput({ name: "" });
+    console.log(activityInput);
   }
 
   return (
     <div className="timeTrackerContainer griditem item5">
-      {/* <img src={img} alt="Clockify screenshot placeholder"></img> */}
-
       <div className="activityTrackerForm">
         <h3>Stopwatch</h3>
         <form className="activityForm" onSubmit={(e) => handleSubmit(e)}>
@@ -62,7 +61,7 @@ function TimeTracker(props) {
             onChange={(e) => handleChange(e)}
             value={activityInput.name}
           ></input>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Save" className="btn save" />
         </form>
       </div>
 
@@ -70,13 +69,23 @@ function TimeTracker(props) {
 
       <div className="buttons">
         {!isActive && !isPaused ? (
-          <button onClick={handleStart}>Start</button>
+          <button onClick={handleStart} className="btn start">
+            Start
+          </button>
         ) : isPaused ? (
-          <button onClick={handlePause}>Pause</button>
+          <button onClick={handlePause} className="btn pause">
+            Pause
+          </button>
         ) : (
-          <button onClick={handleResume}>Resume</button>
+          <button onClick={handleResume} className="btn resume">
+            Resume
+          </button>
         )}
-        <button onClick={handleReset} disabled={!isActive}>
+        <button
+          onClick={handleReset}
+          disabled={!isActive}
+          className="btn reset"
+        >
           Reset
         </button>
       </div>
