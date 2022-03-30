@@ -16,7 +16,7 @@ function App() {
       .then((res) => res.json())
       .then((listOfTasks) => setTaskList(listOfTasks))
       .catch((error) => console.log(error.message));
-  }, []);
+  }, [notesDisplay]);
 
   function addNewTaskToList(newTask) {
     const updatedTaskList = [...taskList, newTask];
