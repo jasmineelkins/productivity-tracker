@@ -8,20 +8,30 @@ const defaultFormState = {
   completed: "false",
 };
 
-function ToDoList({ taskList, setTaskList, addNewTaskToList }) {
+function TaskListContainer({ taskList, setTaskList, addNewTaskToList }) {
   const [formState, setFormState] = useState(defaultFormState);
 
+  function addTaskToList(newTaskObj) {
+    // add task to list & DOM
+    const updatedListToDisplay = [...taskList, newTaskObj];
+    setTaskList(updatedListToDisplay);
+  }
+
   return (
-    <div id="toDoListContainer" className="griditem item2">
+    <div id="taskListContainerContainer" className="griditem item2">
       <NewTaskForm
         formState={formState}
         setFormState={setFormState}
         defaultFormState={defaultFormState}
         addNewTaskToList={addNewTaskToList}
       />
-      <TaskList taskList={taskList} setTaskList={setTaskList} />
+      <TaskList
+        taskList={taskList}
+        setTaskList={setTaskList}
+        addTaskToList={addTaskToList}
+      />
     </div>
   );
 }
 
-export default ToDoList;
+export default TaskListContainer;

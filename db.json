@@ -37,8 +37,8 @@
       "id": 6
     },
     {
-      "name": "new task #2",
-      "priority": "normal",
+      "name": "task",
+      "priority": "low",
       "completed": false,
       "id": 7
     }

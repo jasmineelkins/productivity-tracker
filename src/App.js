@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
-import ToDoList from "./ToDoList";
+import TaskListContainer from "./TaskListContainer";
 import CalendarComponent from "./CalendarComponent";
 import Notes from "./Notes";
 import ActivityLevelTracker from "./ActivityLevelTracker";
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App gridContainer">
       <Header />
-      <ToDoList
+      <TaskListContainer
         taskList={taskList}
         setTaskList={setTaskList}
         addNewTaskToList={addNewTaskToList}
