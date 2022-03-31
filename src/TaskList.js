@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Task from "./Task";
 
-function TaskList({ taskList, setTaskList, addTaskToList, setNotesDisplay }) {
+function TaskList({ taskList, setTaskList, addTaskToList, setNotesDisplay, notes}) {
   function deleteTaskFromList(taskID) {
     // delete task from list & DOM
     const updatedListToDisplay = taskList.filter((task) => task.id !== taskID);
@@ -22,6 +22,7 @@ function TaskList({ taskList, setTaskList, addTaskToList, setNotesDisplay }) {
       addTaskToList={addTaskToList}
       updateTaskInList={updateTaskInList}
       setNotesDisplay={setNotesDisplay}
+      notes={notes}
     />
   ));
   return <div id="taskList">{tasksToDisplay}</div>;
