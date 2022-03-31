@@ -84,7 +84,7 @@ Header {
     "notes notes timer"
     "notes notes ."
     "notes notes ."
-    ". activity activity";
+    "activity activity activity";
   gap: 10px;
 }
 
@@ -293,6 +293,7 @@ input[type="checkbox"]:focus {
   background-color: rgb(237, 214, 210);
   border-radius: 25px;
   padding: 30px;
+  width: 100%;
 }
 .react-calendar-heatmap .color-scale-1 {
   fill: #f70808;

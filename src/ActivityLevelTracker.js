@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 
@@ -14,6 +15,8 @@ function ActivityLevelTracker({ completedTaskList }) {
 
   return (
     <div className="activityTrackerContainer">
+      <Link to="heatmap">+</Link>
+
       <CalendarHeatmap
         startDate={new Date("2022-01-01")}
         endDate={new Date("2022-12-31")}

@@ -7,10 +7,13 @@ import Notes from "./Notes";
 import ActivityLevelTracker from "./ActivityLevelTracker";
 import TimeTracker from "./TimeTracker";
 import GetDate from "./onClickForDate";
+import { ReactDOM } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import EmbeddedGoogleCalendar from "./EmbeddedGoogleCalendar";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
-  const [notesDisplay, setNotesDisplay] = useState({})
+  const [notesDisplay, setNotesDisplay] = useState({});
   const [completedTasks, setCompletedTasks] = useState([]);
 
   useEffect(() => {
@@ -26,7 +29,7 @@ function App() {
   }
 
   function updateNotes(updatedTask) {
-    setNotesDisplay(updatedTask)
+    setNotesDisplay(updatedTask);
   }
 
   const completedTaskList = taskList.filter((task) => task.completed === true);
@@ -35,17 +38,65 @@ function App() {
   return (
     <div className="App gridContainer">
       <Header />
-      <TaskListContainer
-        taskList={taskList}
-        setTaskList={setTaskList}
-        addNewTaskToList={addNewTaskToList}
-        setNotesDisplay={setNotesDisplay}
-      />
-      <CalendarComponent />
-      <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
-      <TimeTracker />
-      <GetDate />
-      <ActivityLevelTracker completedTaskList={completedTaskList} />
+
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <TaskListContainer
+                  taskList={taskList}
+                  setTaskList={setTaskList}
+                  addNewTaskToList={addNewTaskToList}
+                  setNotesDisplay={setNotesDisplay}
+                />
+                <CalendarComponent />
+                <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
+                <TimeTracker />
+                <GetDate />
+                <ActivityLevelTracker completedTaskList={completedTaskList} />
+              </>
+            }
+          ></Route>
+
+          <Route
+            path="task-list"
+            element={
+              <TaskListContainer
+                taskList={taskList}
+                setTaskList={setTaskList}
+                addNewTaskToList={addNewTaskToList}
+                setNotesDisplay={setNotesDisplay}
+              />
+            }
+          ></Route>
+
+          <Route path="calendar" element={<CalendarComponent />}></Route>
+          <Route
+            path="google-calendar"
+            element={<EmbeddedGoogleCalendar />}
+          ></Route>
+
+          <Route
+            path="notes"
+            element={
+              <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
+            }
+          ></Route>
+
+          <Route path="stopwatch" element={<TimeTracker />}></Route>
+
+          <Route path="date" element={<GetDate />}></Route>
+
+          <Route
+            path="heatmap"
+            element={
+              <ActivityLevelTracker completedTaskList={completedTaskList} />
+            }
+          ></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
