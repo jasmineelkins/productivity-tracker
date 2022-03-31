@@ -44,6 +44,7 @@ function App() {
             element={
               <>
                 <TaskListContainer
+                  setCompletedTasks={setCompletedTasks}
                   taskList={taskList}
                   setTaskList={setTaskList}
                   addNewTaskToList={addNewTaskToList}
@@ -53,7 +54,7 @@ function App() {
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
                 <GetDate />
-                <ActivityLevelTracker completedTaskList={completedTaskList} />
+                <ActivityLevelTracker completedTasks={completedTasks} />
               </>
             }
           ></Route>
@@ -90,7 +91,7 @@ function App() {
           <Route
             path="heatmap"
             element={
-              <ActivityLevelTracker completedTaskList={completedTaskList} />
+              <ActivityLevelTracker completedTasks={completedTasks} />
             }
           ></Route>
         </Routes>
