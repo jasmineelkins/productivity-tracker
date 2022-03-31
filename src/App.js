@@ -29,13 +29,13 @@ function App() {
     setNotesDisplay(updatedTask)
   }
 
-  const completedTaskList = taskList.filter((task) => task.completed === true);
-  // setCompletedTasks(completedTaskList);
 
   return (
     <div className="App gridContainer">
       <Header />
       <TaskListContainer
+        completedTasks={completedTasks}
+        setCompletedTasks={setCompletedTasks}
         taskList={taskList}
         setTaskList={setTaskList}
         addNewTaskToList={addNewTaskToList}
@@ -45,7 +45,7 @@ function App() {
       <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
       <TimeTracker />
       <GetDate />
-      <ActivityLevelTracker completedTaskList={completedTaskList} />
+      <ActivityLevelTracker completedTasks={completedTasks}  />
     </div>
   );
 }

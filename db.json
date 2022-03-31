@@ -20,7 +20,7 @@
       "id": 3,
       "name": "Finish homework",
       "priority": "normal",
-      "completed": true,
+      "completed": false,
       "notes": [],
       "dateCompleted": "3/31/2022"
     },
@@ -36,9 +36,9 @@
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": "false",
+      "completed": true,
       "notes": [],
-      "dateCompleted": null
+      "dateCompleted": "3/31/2022"
     },
     {
       "name": "Task",
@@ -53,14 +53,14 @@
     },
     {
       "name": "newer task",
-      "priority": "low",
+      "priority": "high",
       "completed": true,
       "notes": [
         "note",
         "note"
       ],
       "id": 8,
-      "dateCompleted": null
+      "dateCompleted": "3/31/2022"
     },
     {
       "name": "newest task",
@@ -68,7 +68,7 @@
       "completed": true,
       "notes": [],
       "id": 9,
-      "dateCompleted": null
+      "dateCompleted": "3/31/2022"
     }
   ]
 }

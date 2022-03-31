@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 // import useCurrentDate from "./hooks/useCurrentDate";
 
-function Task({ task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
+function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
   const [dropdownChoice, setDropdownChoice] = useState(task.priority);
   // const dropdownValue = dropdownChoice;
   const [isChecked, setIsChecked] = useState(task.completed);
@@ -25,6 +25,7 @@ function Task({ task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
 
   useEffect(() => {
     updateTaskInList(task.id, isChecked, currentDate);
+   
   }, [isChecked, currentDate]);
 
   function deleteTask(taskID) {
@@ -75,7 +76,8 @@ function Task({ task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
     let date = new Date().toLocaleDateString();
     console.log(date);
     setDate(date);
-
+    const completedTaskList = taskList.filter((task) => task.completed === true);
+    setCompletedTasks(completedTaskList);
     // PATCH checkbox input data
     // console.log("before checkbox fetch");
     fetch(`http://localhost:3000/tasks/${task.id}`, {
