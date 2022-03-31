@@ -12,7 +12,7 @@
       "id": 2,
       "name": "Water the plants",
       "priority": "low",
-      "completed": false,
+      "completed": true,
       "notes": [],
       "dateCompleted": "3/31/2022"
     },
@@ -20,9 +20,9 @@
       "id": 3,
       "name": "Finish homework",
       "priority": "normal",
-      "completed": true,
+      "completed": false,
       "notes": [],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "priority": "normal",
       "completed": false,
       "notes": [],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     },
     {
       "id": 5,
@@ -49,25 +49,17 @@
         "new note",
         "newer note"
       ],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     },
     {
       "name": "newer task",
-      "priority": "low",
+      "priority": "high",
       "completed": true,
       "notes": [
         "note",
         "note"
       ],
       "id": 8,
-      "dateCompleted": null
-    },
-    {
-      "name": "newest task",
-      "priority": "normal",
-      "completed": true,
-      "notes": [],
-      "id": 9,
       "dateCompleted": null
     }
   ]

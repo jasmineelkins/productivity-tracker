@@ -32,8 +32,6 @@ function App() {
     setNotesDisplay(updatedTask);
   }
 
-  const completedTaskList = taskList.filter((task) => task.completed === true);
-  // setCompletedTasks(completedTaskList);
 
   return (
     <div className="App gridContainer">
