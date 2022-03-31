@@ -21,8 +21,21 @@ function Notes({notesDisplay, updateNotes}) {
     e.target.reset();
   }
 
-  function handleResetNotes(){
+  function handleResetNotes(e){
+    e.preventDefault();
     
+    
+    const newTaskNotes = {...notesDisplay, notes: []}
+
+    fetch(`http://localhost:3000/tasks/${notesDisplay.id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newTaskNotes)
+    })
+    .then(res => res.json())
+    .then(updatedTask => updateNotes(updatedTask))
   }
 
   return (
@@ -31,7 +44,7 @@ function Notes({notesDisplay, updateNotes}) {
       <form onSubmit={handleNote}>
         <textarea name="notes"></textarea>
         <br></br>
-        <button type="submit">Edit Note</button>
+        <button type="submit">Edit Notes</button>
         <br></br>
         <button onClick={handleResetNotes}>Reset Notes</button>
       </form>
