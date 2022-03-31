@@ -1,32 +1,11 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "name": "Feed the cat",
-      "priority": "normal",
-      "completed": false,
-      "dateCompleted": null
-    },
-    {
-      "id": 2,
-      "name": "Water the plants",
-      "priority": "low",
-      "completed": false,
-      "dateCompleted": null
-    },
-    {
-      "id": 3,
-      "name": "Finish homework",
-      "priority": "normal",
-      "completed": true,
-      "dateCompleted": null
-    },
-    {
       "id": 4,
       "name": "Call mom",
       "priority": "normal",
-      "completed": false,
-      "dateCompleted": null
+      "completed": true,
+      "dateCompleted": "3/30/2022"
     },
     {
       "id": 5,
@@ -47,6 +26,13 @@
       "priority": "normal",
       "completed": false,
       "id": 7,
+      "dateCompleted": null
+    },
+    {
+      "name": "",
+      "priority": "high",
+      "completed": false,
+      "id": 8,
       "dateCompleted": null
     }
   ]

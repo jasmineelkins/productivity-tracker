@@ -39,7 +39,7 @@ function NewTaskForm({
   }
 
   return (
-    <>
+    <div className="newTaskFormContainer">
       <form className="newTaskForm" onSubmit={(e) => handleSubmit(e)}>
         <input
           name="name"
@@ -61,7 +61,7 @@ function NewTaskForm({
 
         <input type="submit" value="Add to list" />
       </form>
-    </>
+    </div>
   );
 }
 

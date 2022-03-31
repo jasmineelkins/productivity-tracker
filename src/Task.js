@@ -16,7 +16,10 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
   //   setDate(date);
   // };
 
+  // REWRITE THIS NOT IN USE EFFECT
   useEffect(() => {
+    console.log("before dropdown fetch");
+
     fetch(`http://localhost:3000/tasks/${task.id}`, {
       method: "PATCH",
       headers: {
@@ -29,28 +32,29 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
       }),
     })
       .then((res) => res.json())
-      // .then((data) => console.log("PATCH data: ", data))
+      .then((data) => console.log("PATCH data: ", data))
       .catch((error) => console.log(error.message));
 
     updateTaskInList(task.id, dropdownChoice);
   }, [dropdownChoice]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/tasks/${task.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3002",
-      },
-      body: JSON.stringify({
-        completed: isChecked,
-        dateCompleted: currentDate,
-      }),
-    })
-      .then((res) => res.json())
-      // .then((data) => console.log("PATCH data 2: ", data))
-      .catch((error) => console.log(error.message));
+    // console.log("before checkbox fetch");
+    // fetch(`http://localhost:3000/tasks/${task.id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //     "Access-Control-Allow-Origin": "http://localhost:3002",
+    //   },
+    //   body: JSON.stringify({
+    //     completed: isChecked,
+    //     dateCompleted: currentDate,
+    //   }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log("PATCH data 2: ", data))
+    //   .catch((error) => console.log(error.message));}
 
     updateTaskInList(task.id, isChecked, currentDate);
   }, [isChecked, currentDate]);
@@ -67,14 +71,36 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
   }
 
   function handleClick(e) {
-    setIsChecked(!isChecked);
-    console.log(isChecked);
+    const newValue = !isChecked;
+    console.log(newValue);
+    setIsChecked(newValue);
 
     // also add date clicked:
     // handleDate();
     let date = new Date().toLocaleDateString();
+    console.log(date);
     setDate(date);
-    console.log(currentDate);
+
+    //
+    console.log("before checkbox fetch");
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3002",
+      },
+      body: JSON.stringify({
+        completed: newValue,
+        dateCompleted: date,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("PATCH data 2: ", data))
+      .catch((error) => console.log(error.message));
+
+    // set the state to update user interface
+    // then save the change to the db
   }
 
   return (
@@ -87,9 +113,15 @@ function Task({ task, deleteTaskFromList, updateTaskInList }) {
         onChange={(e) => setDropdownChoice(e.target.value)}
         value={dropdownChoice}
       >
-        <option value="high">High</option>
-        <option value="normal">Normal</option>
-        <option value="low">Low</option>
+        <option value="high" className="dropdownOption">
+          High
+        </option>
+        <option value="normal" className="dropdownOption">
+          Normal
+        </option>
+        <option value="low" className="dropdownOption">
+          Low
+        </option>
       </select>
 
       <input

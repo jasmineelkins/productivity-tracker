@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TimedActivitiesOutput from "./TimedActivitiesOutput.js";
+import InputValidation from "./InputValidation.js";
 
 //useRef helps us to get or control any element's reference
 
@@ -28,8 +29,11 @@ function TimeTracker(props) {
   // set state for completed timed activities list
   const [activityList, setActivityList] = useState([]);
 
-  function handleChange(e) {
-    setActivityInput({ name: e.target.value, time: formattedTime });
+  function handleInput(e) {
+    setActivityInput({
+      name: e.target.value,
+      time: formattedTime,
+    });
   }
 
   function addActivityToList() {
@@ -42,12 +46,16 @@ function TimeTracker(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    addActivityToList();
-    console.log("activity list: ", activityList);
-    // end timer & submit activity to list
+    if (activityInput.name === "") {
+      alert("please enter an activity");
+    } else {
+      addActivityToList();
+      console.log("activity list: ", activityList);
+      // end timer & submit activity to list
 
-    setActivityInput({ name: "" });
-    console.log(activityInput);
+      setActivityInput({ name: "" });
+      console.log(activityInput);
+    }
   }
 
   return (
@@ -58,11 +66,15 @@ function TimeTracker(props) {
           <input
             name="name"
             placeholder="Track an activity"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => handleInput(e)}
             value={activityInput.name}
           ></input>
           <input type="submit" value="Save" className="btn save" />
         </form>
+
+        <div className="panel panel-default">
+          {/* <InputValidation inputError={this.state.inputError} /> */}
+        </div>
       </div>
 
       <p>{formattedTime}</p>

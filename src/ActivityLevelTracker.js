@@ -13,7 +13,7 @@ function ActivityLevelTracker({ completedTaskList }) {
   // let count = numberOfCompletedTasks;
 
   return (
-    <div>
+    <div className="activityTrackerContainer">
       <CalendarHeatmap
         startDate={new Date("2022-01-01")}
         endDate={new Date("2022-12-31")}

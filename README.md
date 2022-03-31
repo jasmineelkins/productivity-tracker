@@ -1,6 +1,6 @@
 # productivity-tracker
 
-Built Jasmine Elkins, Brad Richardson, and Chris Kim as Phase 2 project for Flatiron School Software Engineering Program.
+Built by Jasmine Elkins, Brad Richardson, and Chris Kim as Phase 2 project for Flatiron School Software Engineering Program.
 
 DELIVERABLES:
 
@@ -11,3 +11,6 @@ DELIVERABLES:
 - User can start a timer (embed Clockify time tracker??)
 - User can see activity levels tracked over time
 - User can click on an element's "maximize" button to make that element full screen (React Router)
+
+CREDITS:
+background image: <a href='https://www.freepik.com/vectors/background'>Background vector created by freepik - www.freepik.com</a>

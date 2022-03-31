@@ -38,8 +38,8 @@ function App() {
       <CalendarComponent />
       <Notes />
       <TimeTracker />
-      <ActivityLevelTracker completedTaskList={completedTaskList} />
       <GetDate />
+      <ActivityLevelTracker completedTaskList={completedTaskList} />
     </div>
   );
 }
