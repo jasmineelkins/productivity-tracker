@@ -8,7 +8,12 @@ const defaultFormState = {
   completed: "false",
 };
 
-function TaskListContainer({ taskList, setTaskList, addNewTaskToList, setNotesDisplay }) {
+function TaskListContainer({
+  taskList,
+  setTaskList,
+  addNewTaskToList,
+  setNotesDisplay,
+}) {
   const [formState, setFormState] = useState(defaultFormState);
 
   return (
@@ -22,7 +27,6 @@ function TaskListContainer({ taskList, setTaskList, addNewTaskToList, setNotesDi
       <TaskList
         taskList={taskList}
         setTaskList={setTaskList}
-        addTaskToList={addTaskToList}
         setNotesDisplay={setNotesDisplay}
       />
     </div>

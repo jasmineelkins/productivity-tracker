@@ -39,7 +39,7 @@
     },
     {
       "name": "New Task",
-      "priority": "low",
+      "priority": "normal",
       "completed": true,
       "id": 6,
       "dateCompleted": null
