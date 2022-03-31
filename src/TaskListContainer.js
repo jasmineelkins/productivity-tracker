@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 import { useNavigate } from "react-router-dom";
+import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
 const defaultFormState = {
   name: "",
@@ -19,7 +20,6 @@ function TaskListContainer({
   const [formState, setFormState] = useState(defaultFormState);
   const navigate = useNavigate();
   const [buttonClicked, setButtonClicked] = useState(true);
-  // let clicked = true;
 
   function handleClick() {
     setButtonClicked(!buttonClicked);
@@ -29,12 +29,19 @@ function TaskListContainer({
   return (
     <div id="taskListContainerContainer" className="griditem item2">
       {buttonClicked ? (
-        <button onClick={() => setButtonClicked(!buttonClicked)}>
+        <button
+          onClick={() => setButtonClicked(!buttonClicked)}
+          className="btn link"
+        >
           {" "}
-          <Link to="task-list">+</Link>
+          <Link to="task-list">
+            <FiMaximize2 />
+          </Link>
         </button>
       ) : (
-        <button onClick={() => handleClick()}>go back</button>
+        <button onClick={() => handleClick()} className="btn return">
+          <FiChevronsLeft />
+        </button>
       )}
 
       <NewTaskForm

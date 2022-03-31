@@ -60,7 +60,7 @@ function NewTaskForm({
           <option value="low">Low</option>
         </select>
 
-        <input type="submit" value="Add to list" />
+        <input type="submit" value="Add to list" className="btn submit" />
       </form>
     </div>
   );

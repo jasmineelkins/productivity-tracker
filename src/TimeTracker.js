@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import TimedActivitiesOutput from "./TimedActivitiesOutput.js";
 import InputValidation from "./InputValidation.js";
+import { useNavigate } from "react-router-dom";
+import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
 //useRef helps us to get or control any element's reference
 
@@ -37,6 +39,14 @@ function TimeTracker(props) {
     });
   }
 
+  const navigate = useNavigate();
+  const [buttonClicked, setButtonClicked] = useState(true);
+
+  function handleClick() {
+    setButtonClicked(!buttonClicked);
+    navigate(-1);
+  }
+
   function addActivityToList() {
     setActivityList([...activityList, activityInput]);
 
@@ -61,7 +71,20 @@ function TimeTracker(props) {
 
   return (
     <div className="timeTrackerContainer griditem item5">
-      <Link to="stopwatch">+</Link>
+      {buttonClicked ? (
+        <button
+          onClick={() => setButtonClicked(!buttonClicked)}
+          className="btn link"
+        >
+          <Link to="stopwatch">
+            <FiMaximize2 />
+          </Link>
+        </button>
+      ) : (
+        <button onClick={() => handleClick()} className="btn return">
+          <FiChevronsLeft />
+        </button>
+      )}
 
       <div className="activityTrackerForm">
         <h3>Stopwatch</h3>

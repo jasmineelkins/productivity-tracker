@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
+import { useNavigate } from "react-router-dom";
+import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
 function ActivityLevelTracker({ completedTaskList }) {
   // 1. count how many items are in the completedTaskList
@@ -12,10 +14,31 @@ function ActivityLevelTracker({ completedTaskList }) {
 
   // set color variable based on how many tasks completed
   // let count = numberOfCompletedTasks;
+  const navigate = useNavigate();
+  const [buttonClicked, setButtonClicked] = useState(true);
+
+  function handleClick() {
+    setButtonClicked(!buttonClicked);
+    navigate(-1);
+  }
 
   return (
-    <div className="activityTrackerContainer">
-      <Link to="heatmap">+</Link>
+    <div className="activityTrackerContainer item6">
+      {buttonClicked ? (
+        <button
+          onClick={() => setButtonClicked(!buttonClicked)}
+          className="btn link"
+        >
+          {" "}
+          <Link to="heatmap">
+            <FiMaximize2 />
+          </Link>
+        </button>
+      ) : (
+        <button onClick={() => handleClick()} className="btn return">
+          <FiChevronsLeft />
+        </button>
+      )}
 
       <CalendarHeatmap
         startDate={new Date("2022-01-01")}

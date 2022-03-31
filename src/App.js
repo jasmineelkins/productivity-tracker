@@ -10,6 +10,7 @@ import GetDate from "./onClickForDate";
 import { ReactDOM } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import EmbeddedGoogleCalendar from "./EmbeddedGoogleCalendar";
+import GoogleCalendar from "./GoogleCalendar";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -54,7 +55,6 @@ function App() {
                 <CalendarComponent />
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
-                <GetDate />
                 <ActivityLevelTracker completedTaskList={completedTaskList} />
               </>
             }
@@ -73,10 +73,11 @@ function App() {
           ></Route>
 
           <Route path="calendar" element={<CalendarComponent />}></Route>
-          <Route
+          {/* <Route
             path="google-calendar"
             element={<EmbeddedGoogleCalendar />}
-          ></Route>
+          ></Route> */}
+          <Route path="google-calendar" element={<GoogleCalendar />}></Route>
 
           <Route
             path="notes"
@@ -86,8 +87,6 @@ function App() {
           ></Route>
 
           <Route path="stopwatch" element={<TimeTracker />}></Route>
-
-          <Route path="date" element={<GetDate />}></Route>
 
           <Route
             path="heatmap"

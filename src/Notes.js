@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
 function Notes({ notesDisplay, updateNotes }) {
+  const navigate = useNavigate();
+  const [buttonClicked, setButtonClicked] = useState(true);
+
+  function handleClick() {
+    setButtonClicked(!buttonClicked);
+    navigate(-1);
+  }
+
   function handleNote(e) {
     e.preventDefault();
 
@@ -41,7 +51,20 @@ function Notes({ notesDisplay, updateNotes }) {
 
   return (
     <div className="notesContainer griditem item4">
-      <Link to="notes">+</Link>
+      {buttonClicked ? (
+        <button
+          onClick={() => setButtonClicked(!buttonClicked)}
+          className="btn link"
+        >
+          <Link to="notes">
+            <FiMaximize2 />
+          </Link>
+        </button>
+      ) : (
+        <button onClick={() => handleClick()} className="btn return">
+          <FiChevronsLeft />
+        </button>
+      )}
 
       <h3>Notes</h3>
       <form onSubmit={handleNote}>
