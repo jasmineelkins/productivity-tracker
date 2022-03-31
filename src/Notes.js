@@ -1,41 +1,41 @@
 import React, { useState } from "react";
 
-function Notes({notesDisplay, updateNotes}) {
-
+function Notes({ notesDisplay, updateNotes }) {
   function handleNote(e) {
     e.preventDefault();
-    
-    
-    const newTaskNotes = {...notesDisplay, notes: [...notesDisplay.notes, e.target.notes.value]}
+
+    const newTaskNotes = {
+      ...notesDisplay,
+      notes: [...notesDisplay.notes, e.target.notes.value],
+    };
 
     fetch(`http://localhost:3000/tasks/${notesDisplay.id}`, {
       method: "PATCH",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newTaskNotes)
+      body: JSON.stringify(newTaskNotes),
     })
-    .then(res => res.json())
-    .then(updatedTask => updateNotes(updatedTask))
+      .then((res) => res.json())
+      .then((updatedTask) => updateNotes(updatedTask));
 
     e.target.reset();
   }
 
-  function handleResetNotes(e){
+  function handleResetNotes(e) {
     e.preventDefault();
-    
-    
-    const newTaskNotes = {...notesDisplay, notes: []}
+
+    const newTaskNotes = { ...notesDisplay, notes: [] };
 
     fetch(`http://localhost:3000/tasks/${notesDisplay.id}`, {
       method: "PATCH",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newTaskNotes)
+      body: JSON.stringify(newTaskNotes),
     })
-    .then(res => res.json())
-    .then(updatedTask => updateNotes(updatedTask))
+      .then((res) => res.json())
+      .then((updatedTask) => updateNotes(updatedTask));
   }
 
   return (
@@ -44,14 +44,26 @@ function Notes({notesDisplay, updateNotes}) {
       <form onSubmit={handleNote}>
         <textarea name="notes"></textarea>
         <br></br>
-        <button type="submit">Edit Notes</button>
+        <button type="submit" className="btn edit">
+          Edit Notes
+        </button>
         <br></br>
-        <button onClick={handleResetNotes}>Reset Notes</button>
+        <button onClick={handleResetNotes} className="btn reset-notes">
+          Reset Notes
+        </button>
       </form>
       <br></br>
-      <h4>{notesDisplay.name ? `Notes for ${notesDisplay.name}:` : `Click a Task To Edit Notes`}</h4>
+      <h4>
+        {notesDisplay.name
+          ? `Notes for ${notesDisplay.name}:`
+          : `Click a Task To Edit Notes`}
+      </h4>
       <br></br>
-      <ul>{notesDisplay.notes ? notesDisplay.notes.map((note, index) => <li key={index}>{note}</li>) : null}</ul>
+      <ul>
+        {notesDisplay.notes
+          ? notesDisplay.notes.map((note, index) => <li key={index}>{note}</li>)
+          : null}
+      </ul>
     </div>
   );
 }

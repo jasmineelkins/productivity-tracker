@@ -5,7 +5,7 @@
       "name": "Feed the cat",
       "priority": "normal",
       "notes": [],
-      "completed": true,
+      "completed": false,
       "dateCompleted": "3/31/2022"
     },
     {
@@ -55,7 +55,10 @@
       "name": "newer task",
       "priority": "low",
       "completed": true,
-      "notes": [],
+      "notes": [
+        "note",
+        "note"
+      ],
       "id": 8,
       "dateCompleted": null
     },

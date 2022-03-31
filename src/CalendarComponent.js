@@ -9,19 +9,19 @@ function CalendarComponent(props) {
     <div className="griditem item3">
       <div className="calendarContainer">
         <Calendar onChange={setDate} value={date} selectRange={true} />
+        {/* {date.length > 0 ? (
+          <p className="text-center date-range">
+            <span className="bold">Start:</span> {date[0].toDateString()}
+            <br></br>
+            <span className="bold">End:</span> {date[1].toDateString()}
+          </p>
+        ) : (
+          <p className="text-center">
+            <span className="bold">Default selected date:</span>{" "}
+            {date.toDateString()}
+          </p>
+        )} */}
       </div>
-      {date.length > 0 ? (
-        <p className="text-center">
-          <span className="bold">Start:</span> {date[0].toDateString()}
-          &nbsp;|&nbsp;
-          <span className="bold">End:</span> {date[1].toDateString()}
-        </p>
-      ) : (
-        <p className="text-center">
-          <span className="bold">Default selected date:</span>{" "}
-          {date.toDateString()}
-        </p>
-      )}
     </div>
   );
 }
