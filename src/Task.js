@@ -4,7 +4,9 @@ import { FaTrashAlt } from "react-icons/fa";
 
 function Task({ task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
   const [dropdownChoice, setDropdownChoice] = useState(task.priority);
+  // const dropdownValue = dropdownChoice;
   const [isChecked, setIsChecked] = useState(task.completed);
+  // const checkedValue = isChecked === "true" ? "true" : "false";
 
   // import useCurrentDate hook
   // const { currentDate, handleDate } = useCurrentDate();
@@ -16,46 +18,12 @@ function Task({ task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
   //   setDate(date);
   // };
 
-  // REWRITE THIS NOT IN USE EFFECT
+  // useEffect to re-render if priority or completed status are updated:
   useEffect(() => {
-    console.log("before dropdown fetch");
-
-    fetch(`http://localhost:3000/tasks/${task.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3002",
-      },
-      body: JSON.stringify({
-        priority: dropdownChoice,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log("PATCH data: ", data))
-      .catch((error) => console.log(error.message));
-
     updateTaskInList(task.id, dropdownChoice);
   }, [dropdownChoice]);
 
   useEffect(() => {
-    // console.log("before checkbox fetch");
-    // fetch(`http://localhost:3000/tasks/${task.id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //     "Access-Control-Allow-Origin": "http://localhost:3002",
-    //   },
-    //   body: JSON.stringify({
-    //     completed: isChecked,
-    //     dateCompleted: currentDate,
-    //   }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log("PATCH data 2: ", data))
-    //   .catch((error) => console.log(error.message));}
-
     updateTaskInList(task.id, isChecked, currentDate);
   }, [isChecked, currentDate]);
 
@@ -71,20 +39,15 @@ function Task({ task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
   }
 
   function handleNotesDisplay() {
-    setNotesDisplay(task)}
-  function handleClick(e) {
-    const newValue = !isChecked;
-    console.log(newValue);
-    setIsChecked(newValue);
+    setNotesDisplay(task);
+  }
 
-    // also add date clicked:
-    // handleDate();
-    let date = new Date().toLocaleDateString();
-    console.log(date);
-    setDate(date);
+  function handleDropdownSelection(e) {
+    setDropdownChoice(e.target.value);
 
-    //
-    console.log("before checkbox fetch");
+    // PATCH dropdown input
+    // console.log("before dropdown fetch");
+
     fetch(`http://localhost:3000/tasks/${task.id}`, {
       method: "PATCH",
       headers: {
@@ -93,28 +56,55 @@ function Task({ task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
         "Access-Control-Allow-Origin": "http://localhost:3002",
       },
       body: JSON.stringify({
-        completed: newValue,
-        dateCompleted: date,
+        priority: e.target.value,
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log("PATCH data 2: ", data))
+      .then((data) => console.log("PATCH after dropdown: ", data))
       .catch((error) => console.log(error.message));
 
     // set the state to update user interface
-    // then save the change to the db
+  }
+
+  function handleClick(e) {
+    setIsChecked(!isChecked);
+
+    // add date clicked:
+    // handleDate();
+    // console.log(currentDate);
+    let date = new Date().toLocaleDateString();
+    console.log(date);
+    setDate(date);
+
+    // PATCH checkbox input data
+    // console.log("before checkbox fetch");
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3002",
+      },
+      body: JSON.stringify({
+        completed: !isChecked,
+        dateCompleted: currentDate,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("PATCH after checkbox: ", data))
+      .catch((error) => console.log(error.message));
   }
 
   return (
     <div className="task">
-      <span className="taskName" onClick={handleNotesDisplay}>{task.name}</span>
-      {/* <span>{task.priority}</span> */}
-      <span className={completedStatusClass}>{task.name}</span>
+      <span className={completedStatusClass} onClick={handleNotesDisplay}>
+        {task.name}
+      </span>
 
       <select
         name="selectList"
         id="selectList"
-        onChange={(e) => setDropdownChoice(e.target.value)}
+        onChange={(e) => handleDropdownSelection(e)}
         value={dropdownChoice}
       >
         <option value="high" className="dropdownOption">

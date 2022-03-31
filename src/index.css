@@ -199,15 +199,10 @@ input[type="checkbox"]:focus {
   background-color: #ba8f9e;
   border-radius: 25px;
   padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.item3 {
-  text-align: center;
-}
-
-/* .calendar {
-  color: white;
-} */
 
 /* NOTES -----------------------------------------------------------------------------  */
 .notesContainer {

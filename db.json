@@ -5,29 +5,32 @@
       "name": "Feed the cat",
       "priority": "normal",
       "notes": [],
-      "completed": "false"
+      "completed": true,
+      "dateCompleted": "3/31/2022"
     },
     {
       "id": 2,
       "name": "Water the plants",
-      "priority": "normal",
-      "completed": "false",
-      "notes": []
+      "priority": "low",
+      "completed": false,
+      "notes": [],
+      "dateCompleted": "3/31/2022"
     },
     {
       "id": 3,
       "name": "Finish homework",
       "priority": "normal",
-      "completed": "false",
-      "notes": []
+      "completed": true,
+      "notes": [],
+      "dateCompleted": "3/31/2022"
     },
     {
       "id": 4,
       "name": "Call mom",
       "priority": "normal",
-      "completed": "false",
+      "completed": false,
       "notes": [],
-      "dateCompleted": "3/30/2022"
+      "dateCompleted": "3/31/2022"
     },
     {
       "id": 5,
@@ -35,13 +38,6 @@
       "priority": "normal",
       "completed": "false",
       "notes": [],
-      "dateCompleted": null
-    },
-    {
-      "name": "New Task",
-      "priority": "normal",
-      "completed": true,
-      "id": 6,
       "dateCompleted": null
     },
     {
@@ -53,26 +49,20 @@
         "new note",
         "newer note"
       ],
-      "dateCompleted": null
-    },
-    {
-      "name": "",
-      "priority": "high",
-      "completed": false,
-      "id": 7,
-      "notes": []
+      "dateCompleted": "3/31/2022"
     },
     {
       "name": "newer task",
-      "priority": "normal",
-      "completed": false,
+      "priority": "low",
+      "completed": true,
       "notes": [],
-      "id": 8
+      "id": 8,
+      "dateCompleted": null
     },
     {
       "name": "newest task",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "notes": [],
       "id": 9,
       "dateCompleted": null

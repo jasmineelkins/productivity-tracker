@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar/dist/umd/Calendar";
-import "react-calendar/dist/Calendar.css";
+import "./CalendarStyle.css";
 
 function CalendarComponent(props) {
   const [date, setDate] = useState(new Date());
@@ -8,11 +8,20 @@ function CalendarComponent(props) {
   return (
     <div className="griditem item3">
       <div className="calendarContainer">
-        <Calendar onChange={setDate} value={date} />
+        <Calendar onChange={setDate} value={date} selectRange={true} />
       </div>
-      <p className="text-center">
-        <span className="bold">Selected Date:</span> {date.toDateString()}
-      </p>
+      {date.length > 0 ? (
+        <p className="text-center">
+          <span className="bold">Start:</span> {date[0].toDateString()}
+          &nbsp;|&nbsp;
+          <span className="bold">End:</span> {date[1].toDateString()}
+        </p>
+      ) : (
+        <p className="text-center">
+          <span className="bold">Default selected date:</span>{" "}
+          {date.toDateString()}
+        </p>
+      )}
     </div>
   );
 }
