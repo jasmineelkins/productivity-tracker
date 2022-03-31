@@ -33,9 +33,6 @@ function App() {
     setNotesDisplay(updatedTask);
   }
 
-  const completedTaskList = taskList.filter((task) => task.completed === true);
-  // setCompletedTasks(completedTaskList);
-
   return (
     <div className="App gridContainer">
       <Header />
@@ -47,6 +44,7 @@ function App() {
             element={
               <>
                 <TaskListContainer
+                  setCompletedTasks={setCompletedTasks}
                   taskList={taskList}
                   setTaskList={setTaskList}
                   addNewTaskToList={addNewTaskToList}
@@ -55,7 +53,8 @@ function App() {
                 <CalendarComponent />
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
-                <ActivityLevelTracker completedTaskList={completedTaskList} />
+                <GetDate />
+                <ActivityLevelTracker completedTasks={completedTasks} />
               </>
             }
           ></Route>
@@ -90,9 +89,7 @@ function App() {
 
           <Route
             path="heatmap"
-            element={
-              <ActivityLevelTracker completedTaskList={completedTaskList} />
-            }
+            element={<ActivityLevelTracker completedTasks={completedTasks} />}
           ></Route>
         </Routes>
       </BrowserRouter>

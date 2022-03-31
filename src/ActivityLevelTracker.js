@@ -5,10 +5,11 @@ import "react-calendar-heatmap/dist/styles.css";
 import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
-function ActivityLevelTracker({ completedTaskList }) {
+function ActivityLevelTracker({ completedTasks, completedTaskList }) {
   // 1. count how many items are in the completedTaskList
   // let numberOfCompletedTasks = completedTaskList.length();
-
+  console.log(completedTaskList);
+  console.log("Completed Tasks: ", completedTasks);
   // will need to determine which date tasks were completed on & link - dateCompleted
   // need to add date info to task in db (PATCH updates db when task checked) - functional but not persisting
 
@@ -22,6 +23,8 @@ function ActivityLevelTracker({ completedTaskList }) {
     navigate(-1);
   }
 
+  const [completedCount, setCompletedCount] = useState(0);
+  //const []
   return (
     <div className="activityTrackerContainer item6">
       {buttonClicked ? (

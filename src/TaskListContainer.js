@@ -16,6 +16,8 @@ function TaskListContainer({
   setTaskList,
   addNewTaskToList,
   setNotesDisplay,
+  completedTasks, 
+  setCompletedTasks,
 }) {
   const [formState, setFormState] = useState(defaultFormState);
   const navigate = useNavigate();
@@ -51,6 +53,8 @@ function TaskListContainer({
         addNewTaskToList={addNewTaskToList}
       />
       <TaskList
+        completedTasks={completedTasks}
+        setCompletedTasks={setCompletedTasks}
         taskList={taskList}
         setTaskList={setTaskList}
         setNotesDisplay={setNotesDisplay}
