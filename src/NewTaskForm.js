@@ -28,6 +28,7 @@ function NewTaskForm({
         name: name,
         priority: priority,
         completed: false,
+        notes: [],
       }),
     })
       .then((res) => res.json())

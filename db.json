@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Feed the cat",
       "priority": "normal",
+      "notes": [],
       "completed": "false"
     },
     {
@@ -11,41 +12,51 @@
       "name": "Water the plants",
       "priority": "normal",
       "completed": "false",
-      "notes": "asap"
+      "notes": []
     },
     {
       "id": 3,
       "name": "Finish homework",
       "priority": "normal",
       "completed": "false",
-      "notes": "new note"
+      "notes": []
     },
     {
       "id": 4,
       "name": "Call mom",
       "priority": "normal",
       "completed": "false",
-      "notes": "now"
+      "notes": []
     },
     {
       "id": 5,
       "name": "Floss",
       "priority": "normal",
       "completed": "false",
-      "notes": "later"
+      "notes": []
     },
     {
       "name": "New Task",
       "priority": "normal",
       "completed": false,
       "id": 6,
-      "notes": ""
+      "notes": [
+        "asap"
+      ]
     },
     {
       "name": "task",
       "priority": "low",
       "completed": false,
-      "id": 7
+      "id": 7,
+      "notes": []
+    },
+    {
+      "name": "newer task",
+      "priority": "normal",
+      "completed": false,
+      "notes": [],
+      "id": 8
     }
   ]
 }
