@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Calendar from "react-calendar/dist/umd/Calendar";
 import "./CalendarStyle.css";
 
@@ -8,6 +9,7 @@ function CalendarComponent(props) {
   return (
     <div className="griditem item3">
       <div className="calendarContainer">
+        <Link to="google-calendar">+</Link>
         <Calendar onChange={setDate} value={date} selectRange={true} />
         {/* {date.length > 0 ? (
           <p className="text-center date-range">

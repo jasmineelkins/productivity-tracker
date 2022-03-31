@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Notes({ notesDisplay, updateNotes }) {
   function handleNote(e) {
@@ -40,6 +41,8 @@ function Notes({ notesDisplay, updateNotes }) {
 
   return (
     <div className="notesContainer griditem item4">
+      <Link to="notes">+</Link>
+
       <h3>Notes</h3>
       <form onSubmit={handleNote}>
         <textarea name="notes"></textarea>

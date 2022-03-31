@@ -5,7 +5,7 @@
       "name": "Feed the cat",
       "priority": "normal",
       "notes": [],
-      "completed": false,
+      "completed": true,
       "dateCompleted": "3/31/2022"
     },
     {
@@ -36,7 +36,7 @@
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": "false",
+      "completed": false,
       "notes": [],
       "dateCompleted": null
     },

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import TimedActivitiesOutput from "./TimedActivitiesOutput.js";
 import InputValidation from "./InputValidation.js";
 
@@ -60,6 +61,8 @@ function TimeTracker(props) {
 
   return (
     <div className="timeTrackerContainer griditem item5">
+      <Link to="stopwatch">+</Link>
+
       <div className="activityTrackerForm">
         <h3>Stopwatch</h3>
         <form className="activityForm" onSubmit={(e) => handleSubmit(e)}>
