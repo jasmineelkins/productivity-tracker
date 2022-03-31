@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TimedActivitiesOutput from "./TimedActivitiesOutput.js";
+import InputValidation from "./InputValidation.js";
 
 //useRef helps us to get or control any element's reference
 
@@ -28,8 +29,11 @@ function TimeTracker(props) {
   // set state for completed timed activities list
   const [activityList, setActivityList] = useState([]);
 
-  function handleChange(e) {
-    setActivityInput({ name: e.target.value, time: formattedTime });
+  function handleInput(e) {
+    setActivityInput({
+      name: e.target.value,
+      time: formattedTime,
+    });
   }
 
   function addActivityToList() {
@@ -42,41 +46,58 @@ function TimeTracker(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    addActivityToList();
-    console.log("activity list: ", activityList);
-    // end timer & submit activity to list
+    if (activityInput.name === "") {
+      alert("please enter an activity");
+    } else {
+      addActivityToList();
+      console.log("activity list: ", activityList);
+      // end timer & submit activity to list
 
-    setActivityInput("");
+      setActivityInput({ name: "" });
+      console.log(activityInput);
+    }
   }
 
   return (
     <div className="timeTrackerContainer griditem item5">
-      {/* <img src={img} alt="Clockify screenshot placeholder"></img> */}
-
       <div className="activityTrackerForm">
         <h3>Stopwatch</h3>
         <form className="activityForm" onSubmit={(e) => handleSubmit(e)}>
           <input
             name="name"
             placeholder="Track an activity"
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => handleInput(e)}
             value={activityInput.name}
           ></input>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Save" className="btn save" />
         </form>
+
+        <div className="panel panel-default">
+          {/* <InputValidation inputError={this.state.inputError} /> */}
+        </div>
       </div>
 
       <p>{formattedTime}</p>
 
       <div className="buttons">
         {!isActive && !isPaused ? (
-          <button onClick={handleStart}>Start</button>
+          <button onClick={handleStart} className="btn start">
+            Start
+          </button>
         ) : isPaused ? (
-          <button onClick={handlePause}>Pause</button>
+          <button onClick={handlePause} className="btn pause">
+            Pause
+          </button>
         ) : (
-          <button onClick={handleResume}>Resume</button>
+          <button onClick={handleResume} className="btn resume">
+            Resume
+          </button>
         )}
-        <button onClick={handleReset} disabled={!isActive}>
+        <button
+          onClick={handleReset}
+          disabled={!isActive}
+          className="btn reset"
+        >
           Reset
         </button>
       </div>

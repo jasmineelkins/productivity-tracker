@@ -26,28 +26,38 @@
       "name": "Call mom",
       "priority": "normal",
       "completed": "false",
-      "notes": []
+      "notes": [],
+      "dateCompleted": "3/30/2022"
     },
     {
       "id": 5,
       "name": "Floss",
       "priority": "normal",
       "completed": "false",
-      "notes": []
+      "notes": [],
+      "dateCompleted": null
     },
     {
       "name": "New Task",
+      "priority": "low",
+      "completed": true,
+      "id": 6,
+      "dateCompleted": null
+    },
+    {
+      "name": "Task",
       "priority": "normal",
       "completed": false,
       "id": 6,
       "notes": [
         "new note",
         "newer note"
-      ]
+      ],
+      "dateCompleted": null
     },
     {
-      "name": "task",
-      "priority": "low",
+      "name": "",
+      "priority": "high",
       "completed": false,
       "id": 7,
       "notes": []
@@ -64,7 +74,8 @@
       "priority": "normal",
       "completed": false,
       "notes": [],
-      "id": 9
+      "id": 9,
+      "dateCompleted": null
     }
   ]
 }

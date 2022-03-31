@@ -23,6 +23,7 @@ function NewTaskForm({
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3002",
       },
       body: JSON.stringify({
         name: name,
@@ -39,7 +40,7 @@ function NewTaskForm({
   }
 
   return (
-    <>
+    <div className="newTaskFormContainer">
       <form className="newTaskForm" onSubmit={(e) => handleSubmit(e)}>
         <input
           name="name"
@@ -61,7 +62,7 @@ function NewTaskForm({
 
         <input type="submit" value="Add to list" />
       </form>
-    </>
+    </div>
   );
 }
 

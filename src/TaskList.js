@@ -3,23 +3,32 @@ import Task from "./Task";
 
 function TaskList({ taskList, setTaskList, addTaskToList, setNotesDisplay, notes}) {
   function deleteTaskFromList(taskID) {
-    // delete task from list & DOM
     const updatedListToDisplay = taskList.filter((task) => task.id !== taskID);
     setTaskList(updatedListToDisplay);
   }
 
-  function updateTaskInList() {
-    // update task from list & DOM
+  function updateTaskInList(taskID, dropdownChoice, isChecked, currentDate) {
+    const updatedListToDisplay = taskList.map((task) => {
+      if (task.id === taskID) {
+        return {
+          ...task,
+          priority: dropdownChoice,
+          completed: isChecked,
+          dateCompleted: currentDate,
+        };
+      } else {
+        return task;
+      }
+    });
+
+    setTaskList(updatedListToDisplay);
   }
 
   const tasksToDisplay = taskList.map((task) => (
     <Task
       task={task}
-      taskList={taskList}
-      setTaskList={setTaskList}
       key={task.id}
       deleteTaskFromList={deleteTaskFromList}
-      addTaskToList={addTaskToList}
       updateTaskInList={updateTaskInList}
       setNotesDisplay={setNotesDisplay}
       notes={notes}

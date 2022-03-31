@@ -11,12 +11,6 @@ const defaultFormState = {
 function TaskListContainer({ taskList, setTaskList, addNewTaskToList, setNotesDisplay }) {
   const [formState, setFormState] = useState(defaultFormState);
 
-  function addTaskToList(newTaskObj) {
-    // add task to list & DOM
-    const updatedListToDisplay = [...taskList, newTaskObj];
-    setTaskList(updatedListToDisplay);
-  }
-
   return (
     <div id="taskListContainerContainer" className="griditem item2">
       <NewTaskForm
