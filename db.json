@@ -5,14 +5,14 @@
       "name": "Feed the cat",
       "priority": "normal",
       "notes": [],
-      "completed": false,
+      "completed": true,
       "dateCompleted": "3/31/2022"
     },
     {
       "id": 2,
       "name": "Water the plants",
       "priority": "low",
-      "completed": false,
+      "completed": true,
       "notes": [],
       "dateCompleted": "3/31/2022"
     },
@@ -22,7 +22,7 @@
       "priority": "normal",
       "completed": false,
       "notes": [],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     },
     {
       "id": 4,
@@ -30,15 +30,15 @@
       "priority": "normal",
       "completed": false,
       "notes": [],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     },
     {
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": true,
+      "completed": false,
       "notes": [],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     },
     {
       "name": "Task",
@@ -49,7 +49,7 @@
         "new note",
         "newer note"
       ],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     },
     {
       "name": "newer task",
@@ -60,15 +60,7 @@
         "note"
       ],
       "id": 8,
-      "dateCompleted": "3/31/2022"
-    },
-    {
-      "name": "newest task",
-      "priority": "normal",
-      "completed": true,
-      "notes": [],
-      "id": 9,
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": null
     }
   ]
 }

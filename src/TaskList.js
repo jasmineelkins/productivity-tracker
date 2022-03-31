@@ -22,6 +22,7 @@ function TaskList({ completedTasks, setCompletedTasks, taskList, setTaskList, se
     });
 
     setTaskList(updatedListToDisplay);
+    return updatedListToDisplay;
   }
 
   const tasksToDisplay = taskList.map((task) => (

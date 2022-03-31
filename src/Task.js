@@ -19,14 +19,13 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
   // };
 
   // useEffect to re-render if priority or completed status are updated:
-  useEffect(() => {
-    updateTaskInList(task.id, dropdownChoice);
-  }, [dropdownChoice]);
 
   useEffect(() => {
-    updateTaskInList(task.id, isChecked, currentDate);
-   
-  }, [isChecked, currentDate]);
+    const updatedTasks = updateTaskInList(task.id, dropdownChoice, isChecked, currentDate);
+    console.log('updated tasks: ', updatedTasks)
+    const completedTaskList = updatedTasks.filter((task) => task.completed === true);
+    setCompletedTasks(completedTaskList);
+  }, [dropdownChoice, isChecked, currentDate]);
 
   function deleteTask(taskID) {
     fetch(`http://localhost:3000/tasks/${taskID}`, {
@@ -67,17 +66,16 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
     // set the state to update user interface
   }
 
+  let date = new Date().toLocaleDateString();
   function handleClick(e) {
     setIsChecked(!isChecked);
 
     // add date clicked:
     // handleDate();
     // console.log(currentDate);
-    let date = new Date().toLocaleDateString();
     console.log(date);
     setDate(date);
-    const completedTaskList = taskList.filter((task) => task.completed === true);
-    setCompletedTasks(completedTaskList);
+ 
     // PATCH checkbox input data
     // console.log("before checkbox fetch");
     fetch(`http://localhost:3000/tasks/${task.id}`, {
