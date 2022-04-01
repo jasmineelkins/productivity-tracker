@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Task from "./Task";
 
-function TaskList({ completedTasks, setCompletedTasks, taskList, setTaskList, setNotesDisplay, notes }) {
+function TaskList({ completedTasks, setCompletedTasks, taskList, setTaskList, setNotesDisplay, notes, newDate }) {
   function deleteTaskFromList(taskID) {
     const updatedListToDisplay = taskList.filter((task) => task.id !== taskID);
     setTaskList(updatedListToDisplay);
@@ -14,7 +14,7 @@ function TaskList({ completedTasks, setCompletedTasks, taskList, setTaskList, se
           ...task,
           priority: dropdownChoice,
           completed: isChecked,
-          dateCompleted: currentDate,
+          date: newDate,
         };
       } else {
         return task;
@@ -36,6 +36,7 @@ function TaskList({ completedTasks, setCompletedTasks, taskList, setTaskList, se
       notes={notes}
       completedTasks={completedTasks}
       setCompletedTasks={setCompletedTasks}
+      newDate={newDate}
     />
   ));
   return <div id="taskList">{tasksToDisplay}</div>;

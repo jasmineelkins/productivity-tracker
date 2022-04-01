@@ -1,15 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
-function ActivityLevelTracker({ completedTasks, completedTaskList }) {
+function ActivityLevelTracker({ completedTasks, newDate }) {
   // 1. count how many items are in the completedTaskList
   // let numberOfCompletedTasks = completedTaskList.length();
-  console.log(completedTaskList);
   console.log("Completed Tasks: ", completedTasks);
+  const [heatMap, setHeatMap] = useState([])
+  
+
+
+
+  
+  useEffect (() => {
+    let res = completedTasks.reduce(function(obj, v) {
+      obj[v.date] = (obj[v.date] || 0) + 1;
+      return obj;
+    }, {})
+    setHeatMap(res)
+  }
+  ,[completedTasks] )
+
+  console.log(heatMap)
+
+  function groupBy(objectArray, property) {
+    return objectArray.reduce(function (acc, obj) {
+      let key = obj[property]
+      if (!acc[key]) {
+        acc[key] = []
+      }
+      acc[key].push(obj)
+      return acc
+    }, {})
+  }
+  
+  let heatMapObj = groupBy(completedTasks, 'date')
+  console.log('heatmapobj',heatMapObj)
+
+
+  const heatMapArray = Object.keys(heatMapObj).map(obj =>({date:obj, count: heatMapObj[obj].length}) )
+  console.log(heatMapArray)
+  
+    
+  
+ 
   // will need to determine which date tasks were completed on & link - dateCompleted
   // need to add date info to task in db (PATCH updates db when task checked) - functional but not persisting
 
@@ -46,17 +83,7 @@ function ActivityLevelTracker({ completedTasks, completedTaskList }) {
       <CalendarHeatmap
         startDate={new Date("2022-01-01")}
         endDate={new Date("2022-12-31")}
-        values={[
-          { date: "2022-03-01", count: 1 },
-          { date: "2022-03-04", count: 2 },
-          { date: "2022-03-07", count: 3 },
-          { date: "2022-03-12", count: 4 },
-          { date: "2022-03-18", count: 5 },
-          { date: "2022-03-27", count: 6 },
-          { date: "2022-03-30", count: 7 },
-
-          // ...and so on
-        ]}
+        values={heatMapArray}
         showWeekdayLabels={true}
         classForValue={(value) => {
           if (!value) {

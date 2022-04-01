@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 // import useCurrentDate from "./hooks/useCurrentDate";
 
-function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFromList, updateTaskInList, setNotesDisplay }) {
+function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFromList, updateTaskInList, setNotesDisplay, newDate }) {
   const [dropdownChoice, setDropdownChoice] = useState(task.priority);
   // const dropdownValue = dropdownChoice;
   const [isChecked, setIsChecked] = useState(task.completed);
@@ -22,7 +22,6 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
 
   useEffect(() => {
     const updatedTasks = updateTaskInList(task.id, dropdownChoice, isChecked, currentDate);
-    console.log('updated tasks: ', updatedTasks)
     const completedTaskList = updatedTasks.filter((task) => task.completed === true);
     setCompletedTasks(completedTaskList);
   }, [dropdownChoice, isChecked, currentDate]);
@@ -67,13 +66,13 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
   }
 
   let date = new Date().toLocaleDateString();
+  
   function handleClick(e) {
     setIsChecked(!isChecked);
-
     // add date clicked:
     // handleDate();
     // console.log(currentDate);
-    console.log(date);
+    ;
     setDate(date);
  
     // PATCH checkbox input data
@@ -87,12 +86,14 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
       },
       body: JSON.stringify({
         completed: !isChecked,
-        dateCompleted: currentDate,
+        date: newDate,
       }),
     })
       .then((res) => res.json())
       .then((data) => console.log("PATCH after checkbox: ", data))
       .catch((error) => console.log(error.message));
+
+      
   }
 
   return (

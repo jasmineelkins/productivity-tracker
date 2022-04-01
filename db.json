@@ -5,16 +5,16 @@
       "name": "Feed the cat",
       "priority": "normal",
       "notes": [],
-      "completed": true,
-      "dateCompleted": "3/31/2022"
+      "completed": false,
+      "date": "2022-07-07T04:00:00.000Z"
     },
     {
       "id": 2,
       "name": "Water the plants",
       "priority": "low",
-      "completed": true,
+      "completed": false,
       "notes": [],
-      "dateCompleted": "3/31/2022"
+      "date": "2022-07-07T04:00:00.000Z"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "priority": "normal",
       "completed": false,
       "notes": [],
-      "dateCompleted": null
+      "date": "2022-07-07T04:00:00.000Z"
     },
     {
       "id": 4,
@@ -30,26 +30,26 @@
       "priority": "normal",
       "completed": false,
       "notes": [],
-      "dateCompleted": null
+      "date": "2022-07-07T04:00:00.000Z"
     },
     {
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "notes": [],
-      "dateCompleted": null
+      "date": "2022-07-08T04:00:00.000Z"
     },
     {
       "name": "Task",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "id": 6,
       "notes": [
         "new note",
         "newer note"
       ],
-      "dateCompleted": null
+      "date": "2022-07-08T04:00:00.000Z"
     },
     {
       "name": "newer task",
@@ -60,7 +60,15 @@
         "note"
       ],
       "id": 8,
-      "dateCompleted": null
+      "date": "2022-07-08T04:00:00.000Z"
+    },
+    {
+      "name": "Newest Task",
+      "priority": "normal",
+      "completed": true,
+      "notes": [],
+      "id": 9,
+      "date": "2022-07-08T04:00:00.000Z"
     }
   ]
 }
