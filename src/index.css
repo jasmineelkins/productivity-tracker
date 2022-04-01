@@ -69,12 +69,17 @@ code {
   grid-area: tips;
 }
 
+.item8 {
+  grid-area: google-map;
+}
+
 .gridContainer {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
   grid-template-rows: auto;
   grid-template-areas:
     ". header ."
+    "google-map google-map google-map"
     "tasks tasks tips"
     "tasks tasks calendar"
     "tasks tasks calendar"

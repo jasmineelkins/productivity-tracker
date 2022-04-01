@@ -8,7 +8,7 @@ function GoogleCalendar(props) {
   const navigate = useNavigate();
 
   return (
-    <div className="googleCalendarContainer">
+    <div className="googleCalendarContainer item8">
       <button onClick={() => navigate(-1)} className="btn return">
         <FiChevronsLeft />
       </button>
