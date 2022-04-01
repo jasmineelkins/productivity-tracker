@@ -30,7 +30,7 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   margin: 30px;
   /* padding: 30px; */
@@ -65,15 +65,24 @@ code {
   grid-area: heatmap;
 }
 
+.item7 {
+  grid-area: tips;
+}
+
+.item8 {
+  grid-area: google-map;
+}
+
 .gridContainer {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
   grid-template-rows: auto;
   grid-template-areas:
-    "header header header"
+    ". header ."
+    "google-map google-map google-map"
+    "tasks tasks tips"
     "tasks tasks calendar"
     "tasks tasks calendar"
-    "tasks tasks timer"
     "notes notes timer"
     "notes notes timer"
     "notes notes ."
@@ -82,6 +91,7 @@ code {
 }
 
 #taskListContainerContainer,
+.tipsContainer,
 .calendarContainer,
 .notesContainer,
 .timeTrackerContainer,
@@ -106,12 +116,14 @@ input::placeholder {
   font-style: italic;
 }
 
+/* BUTTONS ------------------------------------------------------------------------- */
+
 .btn {
   border-radius: 15px;
-  padding: 5px;
+  padding: 10px;
   font-size: 14px;
   font-family: TimeBurner;
-  background-color: #f9e8d7;
+  background-color: #f9e7d7;
 }
 
 .btn a {
@@ -129,18 +141,50 @@ input::placeholder {
   background-color: #f0e88d;
 }
 
+.btn.start:hover,
+.btn.resume:hover,
+.btn.pause:hover,
+.btn.save:hover,
+.btn.reset:hover,
+.btn.submit:hover,
+.btn.random-tip:hover {
+  background-color: rgb(165, 152, 152);
+}
+
+.btn.submit {
+  width: 80px;
+}
+
+.btn.reset:disabled {
+  pointer-events: none;
+}
+
+.btn.start,
+.btn.resume {
+  background-color: rgb(216, 240, 179);
+}
+
+.btn.pause {
+  background-color: rgb(240, 160, 146);
+}
+
+.btn.save {
+  background-color: rgb(187, 141, 170);
+}
+
 /* HEADER ----------------------------------------------------------------------------- */
 Header {
   font-size: 50px;
   color: rgb(121, 46, 75);
   text-align: center;
   padding: 30px;
-  background-color: #f9e6df;
+  background-color: rgba(250, 231, 224, 0.7);
+  /* text-transform: uppercase; */
 }
 
 /* TO DO LIST ----------------------------------------------------------------------------- */
 #taskListContainerContainer {
-  background-color: rgb(187, 144, 136);
+  background-color: rgba(211, 165, 157, 0.7);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,7 +195,7 @@ Header {
   display: flex;
   gap: 20px;
   width: 100%;
-  background-color: #8a7484;
+  background-color: #ab9092;
   border: 1px solid #333;
   border-radius: 10px;
   box-shadow: 0 0 3px yellow;
@@ -160,9 +204,7 @@ Header {
 .newTaskForm {
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid cyan; */
   padding: 20px;
-  /* text-align: center; */
   display: flex;
   width: 100%;
 }
@@ -171,17 +213,8 @@ Header {
   width: 40%;
 }
 
-.btn.submit {
-  width: 80px;
-  padding: 10px;
-}
-
-#taskList {
-  /* border: 1px solid gold; */
-}
-
 .task {
-  background-color: rgb(177, 151, 160);
+  background-color: rgb(208, 177, 177);
   color: #333;
   font-weight: bold;
   display: flex;
@@ -216,9 +249,9 @@ Header {
 }
 
 .deleteButton {
-  background-color: rgb(177, 151, 160);
+  background-color: rgb(208, 177, 177);
   border: none;
-  color: rgb(247, 221, 210);
+  color: rgb(250, 234, 228);
 }
 
 .deleteButton:hover {
@@ -238,9 +271,9 @@ input[type="checkbox"] {
 
   /* background-color only for content */
   background-clip: content-box;
-  border: 1.5px solid rgb(247, 221, 210);
+  border: 1.5px solid rgb(250, 234, 228);
   border-radius: 6px;
-  background-color: rgb(247, 221, 210);
+  background-color: rgb(250, 234, 228);
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -253,15 +286,43 @@ input[type="checkbox"]:focus {
   outline: none !important;
 }
 
+/* TIP OF THE DAY ------------------------------------------------------------------------- */
+.tipsContainer {
+  background-color: rgb(217, 194, 211, 0.7);
+  color: #333;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  /* width: 75%; */
+}
+
+.innerTipContainer {
+  background-color: #f9e9f4;
+  border: 1px solid yellow;
+  padding: 20px;
+  border-radius: 15px;
+  width: 75%;
+}
+
 /* CALENDAR -----------------------------------------------------------------------------  */
 .calendarContainer {
   margin: 20px;
   /* border: 2px solid green; */
-  background-color: #ba8f9e;
+  background-color: rgb(186, 143, 158, 0.7);
   display: flex;
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
+  width: 75%;
+}
+
+.innerCalendarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .date-range {
@@ -272,60 +333,44 @@ input[type="checkbox"]:focus {
 
 /* GOOGLE CALENDAR -----------------------------------------------------------------------  */
 .googleCalendarContainer {
-  background-color: #ba8f9e;
-  width: 60vh;
+  background-color: rgb(186, 143, 158, 0.7);
+  /* background-color: none; */
+  width: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .googleCalendar {
   border-radius: 25px;
 }
 
-.g-cal {
-}
-
 /* NOTES -----------------------------------------------------------------------------  */
 .notesContainer {
-  background-color: rgb(242, 207, 185);
+  background-color: rgb(242, 207, 185, 0.7);
   margin: 20px;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
+  display: grid;
+  grid-template-columns: 50% 50%;
+  flex-direction: row;
   color: rgb(72, 51, 51);
+}
+
+.notesOutputContainer {
+  background-color: #f9e8d7;
+  border: 1px solid yellow;
+  border-radius: 15px;
+  height: 75%;
+  padding: 20px;
+  margin-top: 15px;
 }
 
 /* TIME TRACKER --------------------------------------------------------------------------- */
 .timeTrackerContainer {
-  background-color: rgb(230, 194, 194);
+  background-color: rgb(230, 194, 194, 0.7);
   display: flex;
   flex-direction: column;
   color: rgb(99, 52, 99);
   max-width: 400px;
-}
-
-.btn.start:hover,
-.btn.resume:hover,
-.btn.pause:hover,
-.btn.save:hover,
-.btn.reset:hover {
-  background-color: rgb(165, 152, 152);
-}
-
-.btn.reset:disabled {
-  pointer-events: none;
-}
-
-.btn.start,
-.btn.resume {
-  background-color: rgb(216, 240, 179);
-}
-
-.btn.pause {
-  background-color: rgb(240, 160, 146);
-}
-
-.btn.save {
-  background-color: rgb(187, 141, 170);
 }
 
 .timedActivityOutputContainer {
@@ -343,11 +388,9 @@ input[type="checkbox"]:focus {
   justify-content: space-between;
 }
 
-/* ACTIVITY LEVEL TRACKER ----------------------------------------------------------------- */
+/* HEATMAP ----------------------------------------------------------------- */
 .activityTrackerContainer {
-  /* border: 1px solid black; */
-  background-color: rgb(237, 214, 210);
-  width: 100%;
+  background-color: rgb(237, 214, 210, 0.7);
 }
 .react-calendar-heatmap .color-scale-1 {
   fill: #f70808;
@@ -372,7 +415,14 @@ input[type="checkbox"]:focus {
 }
 
 /* MEDIA QUERIES ----------------------------------------------------------------- */
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 900px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .gridContainer {
     display: grid;
     grid-template-columns: 100%;
@@ -383,7 +433,11 @@ input[type="checkbox"]:focus {
       "calendar"
       "timer"
       "notes"
-      "activity";
+      "heatmap";
     gap: 10px;
+  }
+
+  .notesOutputContainer {
+    height: 50%;
   }
 }

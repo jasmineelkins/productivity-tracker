@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 // import useCurrentDate from "./hooks/useCurrentDate";
 
+
 function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFromList, updateTaskInList, setNotesDisplay, newDate }) {
+
   const [dropdownChoice, setDropdownChoice] = useState(task.priority);
   // const dropdownValue = dropdownChoice;
   const [isChecked, setIsChecked] = useState(task.completed);
@@ -21,8 +23,10 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
   // useEffect to re-render if priority or completed status are updated:
 
   useEffect(() => {
+
     const updatedTasks = updateTaskInList(task.id, dropdownChoice, isChecked, currentDate);
     const completedTaskList = updatedTasks.filter((task) => task.completed === true);
+
     setCompletedTasks(completedTaskList);
   }, [dropdownChoice, isChecked, currentDate]);
 
@@ -67,6 +71,7 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
 
   let date = new Date().toLocaleDateString();
   
+
   function handleClick(e) {
     setIsChecked(!isChecked);
     // add date clicked:
@@ -74,7 +79,7 @@ function Task({ taskList, completedTasks, setCompletedTasks, task, deleteTaskFro
     // console.log(currentDate);
     ;
     setDate(date);
- 
+
     // PATCH checkbox input data
     // console.log("before checkbox fetch");
     fetch(`http://localhost:3000/tasks/${task.id}`, {

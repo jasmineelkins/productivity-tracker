@@ -28,7 +28,7 @@
       "id": 4,
       "name": "Call mom",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "notes": [],
       "date": "2022-07-07T04:00:00.000Z"
     },
@@ -47,7 +47,8 @@
       "id": 6,
       "notes": [
         "new note",
-        "newer note"
+        "newer note",
+        "test"
       ],
       "date": "2022-07-08T04:00:00.000Z"
     },
@@ -69,6 +70,7 @@
       "notes": [],
       "id": 9,
       "date": "2022-07-08T04:00:00.000Z"
+
     }
   ]
 }

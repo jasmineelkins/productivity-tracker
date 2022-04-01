@@ -40,8 +40,14 @@ function CalendarComponent({setNewDate}) {
           </button>
         )}
 
+
+        <div className="innerCalendarContainer">
+          <Calendar onChange={setDate} value={date} selectRange={true} />
+          {/* {date.length > 0 ? (
+
         <Calendar onClickDay={(value, e) => handleUpdateDate(value)} value={date} selectRange={true} />
         {/* {date.length > 0 ? (
+
           <p className="text-center date-range">
             <span className="bold">Start:</span> {date[0].toDateString()}
             <br></br>
@@ -53,6 +59,7 @@ function CalendarComponent({setNewDate}) {
             {date.toDateString()}
           </p>
         )} */}
+        </div>
       </div>
     </div>
   );

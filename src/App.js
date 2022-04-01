@@ -11,6 +11,7 @@ import { ReactDOM } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import EmbeddedGoogleCalendar from "./EmbeddedGoogleCalendar";
 import GoogleCalendar from "./GoogleCalendar";
+import TipsComponent from "./TipsComponent";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -28,6 +29,7 @@ function App() {
 
   function addNewTaskToList(newTask) {
     const updatedTaskList = [...taskList, newTask];
+
     setTaskList(updatedTaskList);
   }
 
@@ -54,11 +56,11 @@ function App() {
                   newDate={newDate}
                   completedTasks={completedTasks}
                 />
-                <CalendarComponent setNewDate={setNewDate} />
+                <TipsComponent />
+                <CalendarComponent />
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
-                <GetDate />
-                <ActivityLevelTracker newDate={newDate} completedTasks={completedTasks} />
+                <ActivityLevelTracker completedTasks={completedTasks} />
               </>
             }
           ></Route>
