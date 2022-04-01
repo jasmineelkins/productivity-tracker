@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
 function EmbeddedGoogleCalendar(props) {
-  const API_KEY = "AIzaSyADFKnovFgJCG6Mm0qt4YWNEXhZ5ainNmA";
+  const API_KEY = "";
   let calendars = [
     {
       calendarId: "c_5j1n89dvsl8729eakhilr78d0o@group.calendar.google.com",
