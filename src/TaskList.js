@@ -51,10 +51,6 @@ function TaskList({
       />
     ));
 
-  // const sortedTaskList = tasksToDisplay.sort(
-  //   (x, y) => sortOrder.indexOf(x.priority) - sortOrder.indexOf(y.priority)
-  // );
-
   return <div id="taskList">{tasksToDisplay}</div>;
 }
 

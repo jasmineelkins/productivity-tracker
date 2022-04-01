@@ -11,6 +11,7 @@ import { ReactDOM } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import EmbeddedGoogleCalendar from "./EmbeddedGoogleCalendar";
 import GoogleCalendar from "./GoogleCalendar";
+import TipsComponent from "./TipsComponent";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -51,6 +52,7 @@ function App() {
                   addNewTaskToList={addNewTaskToList}
                   setNotesDisplay={setNotesDisplay}
                 />
+                <TipsComponent />
                 <CalendarComponent />
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
