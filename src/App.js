@@ -17,6 +17,8 @@ function App() {
   const [taskList, setTaskList] = useState([]);
   const [notesDisplay, setNotesDisplay] = useState({});
   const [completedTasks, setCompletedTasks] = useState([]);
+  const [newDate, setNewDate] = useState(new Date())
+  
 
   useEffect(() => {
     fetch(`http://localhost:3000/tasks`)
@@ -51,6 +53,8 @@ function App() {
                   setTaskList={setTaskList}
                   addNewTaskToList={addNewTaskToList}
                   setNotesDisplay={setNotesDisplay}
+                  newDate={newDate}
+                  completedTasks={completedTasks}
                 />
                 <TipsComponent />
                 <CalendarComponent />
@@ -69,6 +73,7 @@ function App() {
                 setTaskList={setTaskList}
                 addNewTaskToList={addNewTaskToList}
                 setNotesDisplay={setNotesDisplay}
+                newDate={newDate}
               />
             }
           ></Route>
@@ -91,7 +96,7 @@ function App() {
 
           <Route
             path="heatmap"
-            element={<ActivityLevelTracker completedTasks={completedTasks} />}
+            element={<ActivityLevelTracker completedTasks={completedTasks} newDate={newDate} />}
           ></Route>
         </Routes>
       </BrowserRouter>
