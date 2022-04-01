@@ -6,7 +6,7 @@
       "priority": "normal",
       "notes": [],
       "completed": true,
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": "2022-03-01T02:02:09.333Z"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "priority": "low",
       "completed": true,
       "notes": [],
-      "dateCompleted": "3/31/2022"
+      "dateCompleted": "2022-03-11T02:02:11.229Z"
     },
     {
       "id": 3,
@@ -28,9 +28,9 @@
       "id": 4,
       "name": "Call mom",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "notes": [],
-      "dateCompleted": null
+      "dateCompleted": "2022-03-14T02:02:32.009Z"
     },
     {
       "id": 5,
@@ -43,13 +43,13 @@
     {
       "name": "Task",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "id": 6,
       "notes": [
         "new note",
         "newer note"
       ],
-      "dateCompleted": null
+      "dateCompleted": "2022-03-11T06:02:32.966Z"
     },
     {
       "name": "newer task",
@@ -60,7 +60,7 @@
         "note"
       ],
       "id": 8,
-      "dateCompleted": null
+      "dateCompleted": "2022-03-11T04:02:32.966Z"
     }
   ]
 }

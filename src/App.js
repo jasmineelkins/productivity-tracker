@@ -26,6 +26,7 @@ function App() {
 
   function addNewTaskToList(newTask) {
     const updatedTaskList = [...taskList, newTask];
+
     setTaskList(updatedTaskList);
   }
 
@@ -53,7 +54,6 @@ function App() {
                 <CalendarComponent />
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
-                <GetDate />
                 <ActivityLevelTracker completedTasks={completedTasks} />
               </>
             }
