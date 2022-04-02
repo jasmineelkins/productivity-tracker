@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Task from "./Task";
 
-
-function TaskList({ completedTasks, setCompletedTasks, taskList, setTaskList, setNotesDisplay, notes, newDate }) {
-
+function TaskList({
+  completedTasks,
+  setCompletedTasks,
+  taskList,
+  setTaskList,
+  setNotesDisplay,
+  notes,
+  newDate,
+}) {
   function deleteTaskFromList(taskID) {
     const updatedListToDisplay = taskList.filter((task) => task.id !== taskID);
     setTaskList(updatedListToDisplay);

@@ -6,10 +6,7 @@ import CalendarComponent from "./CalendarComponent";
 import Notes from "./Notes";
 import ActivityLevelTracker from "./ActivityLevelTracker";
 import TimeTracker from "./TimeTracker";
-import GetDate from "./onClickForDate";
-import { ReactDOM } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import EmbeddedGoogleCalendar from "./EmbeddedGoogleCalendar";
 import GoogleCalendar from "./GoogleCalendar";
 import TipsComponent from "./TipsComponent";
 
@@ -17,8 +14,7 @@ function App() {
   const [taskList, setTaskList] = useState([]);
   const [notesDisplay, setNotesDisplay] = useState({});
   const [completedTasks, setCompletedTasks] = useState([]);
-  const [newDate, setNewDate] = useState(new Date())
-  
+  const [newDate, setNewDate] = useState(new Date());
 
   useEffect(() => {
     fetch(`http://localhost:3000/tasks`)
@@ -79,10 +75,7 @@ function App() {
           ></Route>
 
           <Route path="calendar" element={<CalendarComponent />}></Route>
-          {/* <Route
-            path="google-calendar"
-            element={<EmbeddedGoogleCalendar />}
-          ></Route> */}
+
           <Route path="google-calendar" element={<GoogleCalendar />}></Route>
 
           <Route
@@ -96,7 +89,12 @@ function App() {
 
           <Route
             path="heatmap"
-            element={<ActivityLevelTracker completedTasks={completedTasks} newDate={newDate} />}
+            element={
+              <ActivityLevelTracker
+                completedTasks={completedTasks}
+                newDate={newDate}
+              />
+            }
           ></Route>
         </Routes>
       </BrowserRouter>

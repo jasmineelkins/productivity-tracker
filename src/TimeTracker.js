@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import TimedActivitiesOutput from "./TimedActivitiesOutput.js";
-import InputValidation from "./InputValidation.js";
 import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
 //useRef helps us to get or control any element's reference
 
-import img from "./TimeTrackerPlaceholder.png";
 import useTimer from "./hooks/useTimer";
 
 function TimeTracker(props) {
   // import Timer hook
   const {
-    timer,
     isActive,
     isPaused,
     handleStart,
@@ -97,10 +94,6 @@ function TimeTracker(props) {
           ></input>
           <input type="submit" value="Save" className="btn save" />
         </form>
-
-        <div className="panel panel-default">
-          {/* <InputValidation inputError={this.state.inputError} /> */}
-        </div>
       </div>
 
       <p>{formattedTime}</p>

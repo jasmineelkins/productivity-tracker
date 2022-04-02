@@ -9,44 +9,38 @@ function ActivityLevelTracker({ completedTasks, newDate }) {
   // 1. count how many items are in the completedTaskList
   // let numberOfCompletedTasks = completedTaskList.length();
   console.log("Completed Tasks: ", completedTasks);
-  const [heatMap, setHeatMap] = useState([])
-  
+  const [heatMap, setHeatMap] = useState([]);
 
-
-
-  
-  useEffect (() => {
-    let res = completedTasks.reduce(function(obj, v) {
+  useEffect(() => {
+    let res = completedTasks.reduce(function (obj, v) {
       obj[v.date] = (obj[v.date] || 0) + 1;
       return obj;
-    }, {})
-    setHeatMap(res)
-  }
-  ,[completedTasks] )
+    }, {});
+    setHeatMap(res);
+  }, [completedTasks]);
 
-  console.log(heatMap)
+  console.log(heatMap);
 
   function groupBy(objectArray, property) {
     return objectArray.reduce(function (acc, obj) {
-      let key = obj[property]
+      let key = obj[property];
       if (!acc[key]) {
-        acc[key] = []
+        acc[key] = [];
       }
-      acc[key].push(obj)
-      return acc
-    }, {})
+      acc[key].push(obj);
+      return acc;
+    }, {});
   }
-  
-  let heatMapObj = groupBy(completedTasks, 'date')
-  console.log('heatmapobj',heatMapObj)
 
+  let heatMapObj = groupBy(completedTasks, "date");
+  console.log("heatmapobj", heatMapObj);
 
-  const heatMapArray = Object.keys(heatMapObj).map(obj =>({date:obj, count: heatMapObj[obj].length}) )
-  console.log(heatMapArray)
-  
-    
-  
- 
+  const heatMapArray = Object.keys(heatMapObj).map((obj) => ({
+    date: obj,
+    count: heatMapObj[obj].length,
+  }));
+  console.log(heatMapArray);
+
   // will need to determine which date tasks were completed on & link - dateCompleted
   // need to add date info to task in db (PATCH updates db when task checked) - functional but not persisting
 
@@ -60,8 +54,6 @@ function ActivityLevelTracker({ completedTasks, newDate }) {
     navigate(-1);
   }
 
-  const [completedCount, setCompletedCount] = useState(0);
-  //const []
   return (
     <div className="activityTrackerContainer item6">
       {buttonClicked ? (

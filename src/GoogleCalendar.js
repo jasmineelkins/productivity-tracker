@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactEmbeddedGoogleCalendar } from "react-embedded-google-calendar";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
+import { FiChevronsLeft } from "react-icons/fi";
 
 function GoogleCalendar(props) {
   const navigate = useNavigate();

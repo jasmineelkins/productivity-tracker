@@ -305,6 +305,10 @@ input[type="checkbox"]:focus {
   padding: 20px;
   border-radius: 15px;
   width: 75%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* CALENDAR -----------------------------------------------------------------------------  */
