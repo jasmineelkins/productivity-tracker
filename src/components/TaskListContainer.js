@@ -16,9 +16,9 @@ function TaskListContainer({
   setTaskList,
   addNewTaskToList,
   setNotesDisplay,
-  completedTasks, 
+  completedTasks,
   setCompletedTasks,
-  newDate,
+  completedDate,
 }) {
   const [formState, setFormState] = useState(defaultFormState);
   const navigate = useNavigate();
@@ -28,7 +28,6 @@ function TaskListContainer({
     setButtonClicked(!buttonClicked);
     navigate(-1);
   }
-
 
   return (
     <div id="taskListContainerContainer" className="griditem item2">
@@ -60,7 +59,7 @@ function TaskListContainer({
         taskList={taskList}
         setTaskList={setTaskList}
         setNotesDisplay={setNotesDisplay}
-        newDate={newDate}
+        completedDate={completedDate}
       />
     </div>
   );

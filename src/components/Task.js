@@ -8,38 +8,29 @@ function Task({
   deleteTaskFromList,
   updateTaskInList,
   setNotesDisplay,
-  newDate,
+  completedDate,
 }) {
   const [dropdownChoice, setDropdownChoice] = useState(task.priority);
-  // const dropdownValue = dropdownChoice;
   const [isChecked, setIsChecked] = useState(task.completed);
-  // const checkedValue = isChecked === "true" ? "true" : "false";
-
-  // import useCurrentDate hook
-  // const { currentDate, handleDate } = useCurrentDate();
 
   const completedStatusClass = isChecked ? "taskName completed" : "taskName";
-  const [currentDate, setDate] = useState(null);
-  // const handleDate = () => {
-  //   let date = new Date().toLocaleDateString();
-  //   setDate(date);
-  // };
 
   // useEffect to re-render if priority or completed status are updated:
-
   useEffect(() => {
+    console.log("useEffect triggered");
+    console.log(completedDate);
     const updatedTasks = updateTaskInList(
       task.id,
       dropdownChoice,
       isChecked,
-      currentDate
+      completedDate
     );
     const completedTaskList = updatedTasks.filter(
       (task) => task.completed === true
     );
 
     setCompletedTasks(completedTaskList);
-  }, [dropdownChoice, isChecked, currentDate]);
+  }, [dropdownChoice, isChecked, completedDate]);
 
   function deleteTask(taskID) {
     fetch(`http://localhost:3000/tasks/${taskID}`, {
@@ -60,8 +51,6 @@ function Task({
     setDropdownChoice(e.target.value);
 
     // PATCH dropdown input
-    // console.log("before dropdown fetch");
-
     fetch(`http://localhost:3000/tasks/${task.id}`, {
       method: "PATCH",
       headers: {
@@ -80,17 +69,10 @@ function Task({
     // set the state to update user interface
   }
 
-  let date = new Date().toLocaleDateString();
-
   function handleClick(e) {
     setIsChecked(!isChecked);
-    // add date clicked:
-    // handleDate();
-    // console.log(currentDate);
-    setDate(date);
 
     // PATCH checkbox input data
-    // console.log("before checkbox fetch");
     fetch(`http://localhost:3000/tasks/${task.id}`, {
       method: "PATCH",
       headers: {
@@ -100,7 +82,7 @@ function Task({
       },
       body: JSON.stringify({
         completed: !isChecked,
-        date: newDate,
+        date: completedDate,
       }),
     })
       .then((res) => res.json())

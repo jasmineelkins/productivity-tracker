@@ -5,7 +5,7 @@ import "../CalendarStyle.css";
 import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
-function CalendarComponent({ setNewDate }) {
+function CalendarComponent({ setCompletedDate }) {
   const [date, setDate] = useState(new Date());
 
   const navigate = useNavigate();
@@ -17,7 +17,9 @@ function CalendarComponent({ setNewDate }) {
   }
 
   function handleUpdateDate(value) {
-    setNewDate(value);
+    console.log("DATE: ", value.toISOString());
+    setDate(value);
+    setCompletedDate(value.toISOString());
   }
 
   return (
@@ -39,23 +41,7 @@ function CalendarComponent({ setNewDate }) {
         )}
 
         <div className="innerCalendarContainer">
-          <Calendar onChange={setDate} value={date} selectRange={true} />
-          {/* {date.length > 0 ? (
-
-        <Calendar onClickDay={(value, e) => handleUpdateDate(value)} value={date} selectRange={true} />
-        {/* {date.length > 0 ? (
-
-          <p className="text-center date-range">
-            <span className="bold">Start:</span> {date[0].toDateString()}
-            <br></br>
-            <span className="bold">End:</span> {date[1].toDateString()}
-          </p>
-        ) : (
-          <p className="text-center">
-            <span className="bold">Default selected date:</span>{" "}
-            {date.toDateString()}
-          </p>
-        )} */}
+          <Calendar onChange={handleUpdateDate} value={date} />
         </div>
       </div>
     </div>

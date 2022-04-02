@@ -14,8 +14,10 @@ function App() {
   const [taskList, setTaskList] = useState([]);
   const [notesDisplay, setNotesDisplay] = useState({});
   const [completedTasks, setCompletedTasks] = useState([]);
-  const [newDate, setNewDate] = useState(new Date());
-  // newDate passed to Calender, TaskList, Heatmap
+  const [completedDate, setCompletedDate] = useState(new Date().toISOString());
+  // completedDate passed to Calender, TaskList, Heatmap
+  // clickEvent in Calendar sets completedDate
+  // completedDate is passed to task and updates 'date' in PATCH
 
   useEffect(() => {
     fetch(`http://localhost:3000/tasks`)
@@ -50,11 +52,14 @@ function App() {
                   setTaskList={setTaskList}
                   addNewTaskToList={addNewTaskToList}
                   setNotesDisplay={setNotesDisplay}
-                  newDate={newDate}
+                  completedDate={completedDate}
                   completedTasks={completedTasks}
                 />
                 <TipsComponent />
-                <CalendarComponent setNewDate={setNewDate} />
+                <CalendarComponent
+                  setCompletedDate={setCompletedDate}
+                  completedDate={completedDate}
+                />
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
                 <Heatmap completedTasks={completedTasks} />
@@ -70,14 +75,14 @@ function App() {
                 setTaskList={setTaskList}
                 addNewTaskToList={addNewTaskToList}
                 setNotesDisplay={setNotesDisplay}
-                newDate={newDate}
+                completedDate={completedDate}
               />
             }
           ></Route>
 
           <Route
             path="calendar"
-            element={<CalendarComponent setNewDate={setNewDate} />}
+            element={<CalendarComponent setCompletedDate={setCompletedDate} />}
           ></Route>
 
           <Route path="google-calendar" element={<GoogleCalendar />}></Route>
@@ -94,7 +99,10 @@ function App() {
           <Route
             path="heatmap"
             element={
-              <Heatmap completedTasks={completedTasks} newDate={newDate} />
+              <Heatmap
+                completedTasks={completedTasks}
+                completedDate={completedDate}
+              />
             }
           ></Route>
         </Routes>

@@ -8,7 +8,7 @@ function TaskList({
   setTaskList,
   setNotesDisplay,
   notes,
-  newDate,
+  completedDate,
 }) {
   function deleteTaskFromList(taskID) {
     const updatedListToDisplay = taskList.filter((task) => task.id !== taskID);
@@ -22,7 +22,7 @@ function TaskList({
           ...task,
           priority: dropdownChoice,
           completed: isChecked,
-          date: newDate,
+          date: completedDate,
         };
       } else {
         return task;
@@ -49,6 +49,7 @@ function TaskList({
         notes={notes}
         completedTasks={completedTasks}
         setCompletedTasks={setCompletedTasks}
+        completedDate={completedDate}
       />
     ));
 

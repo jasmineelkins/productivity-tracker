@@ -21,7 +21,7 @@ function TipsComponent() {
     <div className="tipsContainer item7">
       <div className="innerTipContainer">
         <span>{quote.text}</span>
-        <span style={{ "font-style": "italic" }}>-{quote.author}</span>
+        <span style={{ fontStyle: "italic" }}>-{quote.author}</span>
       </div>
       <button onClick={getQuote} className="btn random-tip">
         New Tip

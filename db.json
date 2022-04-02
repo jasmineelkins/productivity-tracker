@@ -6,46 +6,46 @@
       "priority": "normal",
       "notes": [],
       "completed": true,
-      "date": "2022-07-07T04:00:00.000Z"
+      "date": "2022-04-02T04:00:00.000Z"
     },
     {
       "id": 2,
       "name": "Water the plants",
       "priority": "normal",
-      "completed": true,
+      "completed": false,
       "notes": [
         "Peace Lily needs fertilizer!"
       ],
-      "date": "2022-07-07T04:00:00.000Z"
+      "date": "2022-04-02T22:39:05.392Z"
     },
     {
       "id": 3,
       "name": "Finish homework",
-      "priority": "normal",
+      "priority": "high",
       "completed": true,
       "notes": [],
-      "date": "2022-07-07T04:00:00.000Z"
+      "date": "2022-06-17T04:00:00.000Z"
     },
     {
       "id": 4,
       "name": "Call mom",
       "priority": "high",
-      "completed": true,
+      "completed": false,
       "notes": [],
-      "date": "2022-07-07T04:00:00.000Z"
+      "date": "2022-04-02T22:39:07.454Z"
     },
     {
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": true,
+      "completed": false,
       "notes": [],
-      "date": "2022-07-08T04:00:00.000Z"
+      "date": "2022-04-02T22:39:04.872Z"
     },
     {
       "name": "Buy groceries",
       "priority": "high",
-      "completed": true,
+      "completed": false,
       "notes": [
         "Eggs",
         "Milk",
@@ -56,19 +56,27 @@
         "Sparkling water"
       ],
       "id": 6,
-      "date": "2022-04-01T17:16:03.815Z"
+      "date": "2022-04-02T22:39:06.954Z"
     },
     {
       "name": "Clean apartment",
       "priority": "low",
-      "completed": true,
+      "completed": false,
       "notes": [
         "Vacuum",
         "Empty dishwasher",
         "Dust"
       ],
       "id": 7,
-      "date": "2022-04-01T17:16:03.815Z"
+      "date": "2022-04-02T22:39:03.883Z"
+    },
+    {
+      "name": "New Task",
+      "priority": "low",
+      "completed": true,
+      "notes": [],
+      "id": 8,
+      "date": "2022-01-11T05:00:00.000Z"
     }
   ]
 }
