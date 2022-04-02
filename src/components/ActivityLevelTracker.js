@@ -5,7 +5,7 @@ import "react-calendar-heatmap/dist/styles.css";
 import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
-function ActivityLevelTracker({ completedTasks, newDate }) {
+function ActivityLevelTracker({ completedTasks }) {
   // 1. count how many items are in the completedTaskList
   // let numberOfCompletedTasks = completedTaskList.length();
   console.log("Completed Tasks: ", completedTasks);

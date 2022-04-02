@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Calendar from "react-calendar/dist/umd/Calendar";
-import "./CalendarStyle.css";
+import "../CalendarStyle.css";
 import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
-
-function CalendarComponent({setNewDate}) {
+function CalendarComponent({ setNewDate }) {
   const [date, setDate] = useState(new Date());
 
   const navigate = useNavigate();
@@ -17,9 +16,8 @@ function CalendarComponent({setNewDate}) {
     navigate(-1);
   }
 
-  function handleUpdateDate(value){
-    setNewDate(value)
-
+  function handleUpdateDate(value) {
+    setNewDate(value);
   }
 
   return (
@@ -39,7 +37,6 @@ function CalendarComponent({setNewDate}) {
             <FiChevronsLeft />
           </button>
         )}
-
 
         <div className="innerCalendarContainer">
           <Calendar onChange={setDate} value={date} selectRange={true} />

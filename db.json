@@ -61,7 +61,7 @@
     {
       "name": "Clean apartment",
       "priority": "low",
-      "completed": false,
+      "completed": true,
       "notes": [
         "Vacuum",
         "Empty dishwasher",

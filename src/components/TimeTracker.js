@@ -6,7 +6,7 @@ import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
 //useRef helps us to get or control any element's reference
 
-import useTimer from "./hooks/useTimer";
+import useTimer from "../hooks/useTimer";
 
 function TimeTracker(props) {
   // import Timer hook

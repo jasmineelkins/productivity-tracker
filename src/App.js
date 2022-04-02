@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./Header";
-import TaskListContainer from "./TaskListContainer";
-import CalendarComponent from "./CalendarComponent";
-import Notes from "./Notes";
-import ActivityLevelTracker from "./ActivityLevelTracker";
-import TimeTracker from "./TimeTracker";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import GoogleCalendar from "./GoogleCalendar";
-import TipsComponent from "./TipsComponent";
+import Header from "./components/Header";
+import TaskListContainer from "./components/TaskListContainer";
+import CalendarComponent from "./components/CalendarComponent";
+import Notes from "./components/Notes";
+import ActivityLevelTracker from "./components/ActivityLevelTracker";
+import TimeTracker from "./components/TimeTracker";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GoogleCalendar from "./components/GoogleCalendar";
+import TipsComponent from "./components/TipsComponent";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -53,7 +53,7 @@ function App() {
                   completedTasks={completedTasks}
                 />
                 <TipsComponent />
-                <CalendarComponent />
+                <CalendarComponent setNewDate={setNewDate} />
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
                 <ActivityLevelTracker completedTasks={completedTasks} />
@@ -74,7 +74,10 @@ function App() {
             }
           ></Route>
 
-          <Route path="calendar" element={<CalendarComponent />}></Route>
+          <Route
+            path="calendar"
+            element={<CalendarComponent setNewDate={setNewDate} />}
+          ></Route>
 
           <Route path="google-calendar" element={<GoogleCalendar />}></Route>
 
