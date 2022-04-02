@@ -95,7 +95,7 @@ code {
 .calendarContainer,
 .notesContainer,
 .timeTrackerContainer,
-.activityTrackerContainer,
+.heatmapContainer,
 .googleCalendarContainer,
 Header {
   border: 1px solid yellow;
@@ -393,7 +393,7 @@ input[type="checkbox"]:focus {
 }
 
 /* HEATMAP ----------------------------------------------------------------- */
-.activityTrackerContainer {
+.heatmapContainer {
   background-color: rgb(237, 214, 210, 0.7);
 }
 .react-calendar-heatmap .color-scale-1 {

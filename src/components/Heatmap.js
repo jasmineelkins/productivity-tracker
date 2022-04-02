@@ -5,7 +5,7 @@ import "react-calendar-heatmap/dist/styles.css";
 import { useNavigate } from "react-router-dom";
 import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
 
-function ActivityLevelTracker({ completedTasks }) {
+function Heatmap({ completedTasks }) {
   // 1. count how many items are in the completedTaskList
   // let numberOfCompletedTasks = completedTaskList.length();
   console.log("Completed Tasks: ", completedTasks);
@@ -55,7 +55,7 @@ function ActivityLevelTracker({ completedTasks }) {
   }
 
   return (
-    <div className="activityTrackerContainer item6">
+    <div className="heatmapContainer item6">
       {buttonClicked ? (
         <button
           onClick={() => setButtonClicked(!buttonClicked)}
@@ -88,4 +88,4 @@ function ActivityLevelTracker({ completedTasks }) {
   );
 }
 
-export default ActivityLevelTracker;
+export default Heatmap;
