@@ -17,8 +17,6 @@ function Task({
 
   // useEffect to re-render if priority or completed status are updated:
   useEffect(() => {
-    console.log("useEffect triggered");
-    console.log(completedDate);
     const updatedTasks = updateTaskInList(
       task.id,
       dropdownChoice,

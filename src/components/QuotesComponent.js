@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function TipsComponent() {
+function QuotesComponent() {
   const [quoteList, setQuoteList] = useState(null);
   const [quote, setQuote] = useState({ text: "Quote of the day" });
 
@@ -24,10 +24,10 @@ function TipsComponent() {
         <span style={{ fontStyle: "italic" }}>-{quote.author}</span>
       </div>
       <button onClick={getQuote} className="btn random-tip">
-        New Tip
+        New Quote
       </button>
     </div>
   );
 }
 
-export default TipsComponent;
+export default QuotesComponent;

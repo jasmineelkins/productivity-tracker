@@ -8,7 +8,7 @@ import Heatmap from "./components/Heatmap";
 import TimeTracker from "./components/TimeTracker";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GoogleCalendar from "./components/GoogleCalendar";
-import TipsComponent from "./components/TipsComponent";
+import QuotesComponent from "./components/QuotesComponent";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -55,7 +55,7 @@ function App() {
                   completedDate={completedDate}
                   completedTasks={completedTasks}
                 />
-                <TipsComponent />
+                <QuotesComponent />
                 <CalendarComponent
                   setCompletedDate={setCompletedDate}
                   completedDate={completedDate}

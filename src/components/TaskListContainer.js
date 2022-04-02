@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
-import { useNavigate } from "react-router-dom";
-import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
+import RouteButton from "./RouteButton";
 
 const defaultFormState = {
   name: "",
@@ -21,31 +19,10 @@ function TaskListContainer({
   completedDate,
 }) {
   const [formState, setFormState] = useState(defaultFormState);
-  const navigate = useNavigate();
-  const [buttonClicked, setButtonClicked] = useState(true);
-
-  function handleClick() {
-    setButtonClicked(!buttonClicked);
-    navigate(-1);
-  }
 
   return (
     <div id="taskListContainerContainer" className="griditem item2">
-      {buttonClicked ? (
-        <button
-          onClick={() => setButtonClicked(!buttonClicked)}
-          className="btn link"
-        >
-          {" "}
-          <Link to="task-list">
-            <FiMaximize2 />
-          </Link>
-        </button>
-      ) : (
-        <button onClick={() => handleClick()} className="btn return">
-          <FiChevronsLeft />
-        </button>
-      )}
+      <RouteButton path="task-list" />
 
       <NewTaskForm
         formState={formState}

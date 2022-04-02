@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
-import { useNavigate } from "react-router-dom";
-import { FiMaximize2, FiChevronsLeft } from "react-icons/fi";
+import RouteButton from "./RouteButton";
 
 function Heatmap({ completedTasks }) {
-  // 1. count how many items are in the completedTaskList
-  // let numberOfCompletedTasks = completedTaskList.length();
+  // 1. count how many items are in completedTasks
+
   console.log("Completed Tasks: ", completedTasks);
-  const [heatMap, setHeatMap] = useState([]);
+  // const [heatMap, setHeatMap] = useState([]);
 
-  useEffect(() => {
-    let res = completedTasks.reduce(function (obj, v) {
-      obj[v.date] = (obj[v.date] || 0) + 1;
-      return obj;
-    }, {});
-    setHeatMap(res);
-  }, [completedTasks]);
+  // useEffect(() => {
+  //   let res = completedTasks.reduce(function (obj, v) {
+  //     obj[v.date] = (obj[v.date] || 0) + 1;
+  //     return obj;
+  //   }, {});
+  //   setHeatMap(res);
+  // }, [completedTasks]);
 
-  console.log(heatMap);
+  // console.log("Heatmap: ", heatMap);
 
   function groupBy(objectArray, property) {
     return objectArray.reduce(function (acc, obj) {
@@ -46,31 +44,10 @@ function Heatmap({ completedTasks }) {
 
   // set color variable based on how many tasks completed
   // let count = numberOfCompletedTasks;
-  const navigate = useNavigate();
-  const [buttonClicked, setButtonClicked] = useState(true);
-
-  function handleClick() {
-    setButtonClicked(!buttonClicked);
-    navigate(-1);
-  }
 
   return (
     <div className="heatmapContainer item6">
-      {buttonClicked ? (
-        <button
-          onClick={() => setButtonClicked(!buttonClicked)}
-          className="btn link"
-        >
-          {" "}
-          <Link to="heatmap">
-            <FiMaximize2 />
-          </Link>
-        </button>
-      ) : (
-        <button onClick={() => handleClick()} className="btn return">
-          <FiChevronsLeft />
-        </button>
-      )}
+      <RouteButton path="heatmap" />
 
       <CalendarHeatmap
         startDate={new Date("2022-01-01")}

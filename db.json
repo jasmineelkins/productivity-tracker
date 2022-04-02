@@ -5,18 +5,18 @@
       "name": "Feed the cat",
       "priority": "normal",
       "notes": [],
-      "completed": true,
-      "date": "2022-04-02T04:00:00.000Z"
+      "completed": false,
+      "date": "2022-04-02T23:13:05.874Z"
     },
     {
       "id": 2,
       "name": "Water the plants",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "notes": [
         "Peace Lily needs fertilizer!"
       ],
-      "date": "2022-04-02T22:39:05.392Z"
+      "date": "2022-01-01T05:00:00.000Z"
     },
     {
       "id": 3,
@@ -24,7 +24,7 @@
       "priority": "high",
       "completed": true,
       "notes": [],
-      "date": "2022-06-17T04:00:00.000Z"
+      "date": "2022-04-30T04:00:00.000Z"
     },
     {
       "id": 4,
@@ -38,9 +38,9 @@
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": false,
+      "completed": true,
       "notes": [],
-      "date": "2022-04-02T22:39:04.872Z"
+      "date": "2022-04-02T04:00:00.000Z"
     },
     {
       "name": "Buy groceries",
@@ -56,27 +56,19 @@
         "Sparkling water"
       ],
       "id": 6,
-      "date": "2022-04-02T22:39:06.954Z"
+      "date": "2022-04-02T23:13:05.874Z"
     },
     {
       "name": "Clean apartment",
       "priority": "low",
-      "completed": false,
+      "completed": true,
       "notes": [
         "Vacuum",
         "Empty dishwasher",
         "Dust"
       ],
       "id": 7,
-      "date": "2022-04-02T22:39:03.883Z"
-    },
-    {
-      "name": "New Task",
-      "priority": "low",
-      "completed": true,
-      "notes": [],
-      "id": 8,
-      "date": "2022-01-11T05:00:00.000Z"
+      "date": "2022-04-02T04:00:00.000Z"
     }
   ]
 }
