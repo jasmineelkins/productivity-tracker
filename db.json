@@ -12,19 +12,19 @@
       "id": 2,
       "name": "Water the plants",
       "priority": "normal",
-      "completed": true,
+      "completed": false,
       "notes": [
         "Peace Lily needs fertilizer!"
       ],
-      "date": "2022-01-01T05:00:00.000Z"
+      "date": "2022-03-14T04:00:00.000Z"
     },
     {
       "id": 3,
       "name": "Finish homework",
       "priority": "high",
-      "completed": true,
+      "completed": false,
       "notes": [],
-      "date": "2022-04-30T04:00:00.000Z"
+      "date": "2022-03-14T04:00:00.000Z"
     },
     {
       "id": 4,
@@ -38,9 +38,9 @@
       "id": 5,
       "name": "Floss",
       "priority": "normal",
-      "completed": true,
+      "completed": false,
       "notes": [],
-      "date": "2022-04-02T04:00:00.000Z"
+      "date": "2022-03-14T04:00:00.000Z"
     },
     {
       "name": "Buy groceries",
@@ -61,14 +61,14 @@
     {
       "name": "Clean apartment",
       "priority": "low",
-      "completed": true,
+      "completed": false,
       "notes": [
         "Vacuum",
         "Empty dishwasher",
         "Dust"
       ],
       "id": 7,
-      "date": "2022-04-02T04:00:00.000Z"
+      "date": "2022-03-14T04:00:00.000Z"
     }
   ]
 }

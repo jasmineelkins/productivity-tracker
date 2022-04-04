@@ -445,3 +445,9 @@ input[type="checkbox"]:focus {
     height: 50%;
   }
 }
+
+/* MAXIMIZED COMPONENTS (ROUTES) -------------------------------------------------- */
+.gridContainer.maximized {
+  display: block;
+  width: 100%;
+}

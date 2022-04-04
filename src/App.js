@@ -15,9 +15,6 @@ function App() {
   const [notesDisplay, setNotesDisplay] = useState({});
   const [completedTasks, setCompletedTasks] = useState([]);
   const [completedDate, setCompletedDate] = useState(new Date().toISOString());
-  // completedDate passed to Calender, TaskList, Heatmap
-  // clickEvent in Calendar sets completedDate
-  // completedDate is passed to task and updates 'date' in PATCH
 
   useEffect(() => {
     fetch(`http://localhost:3000/tasks`)
@@ -37,7 +34,7 @@ function App() {
   }
 
   return (
-    <div className="App gridContainer">
+    <div>
       <Header />
 
       <BrowserRouter>
@@ -45,7 +42,7 @@ function App() {
           <Route
             path="/"
             element={
-              <>
+              <div className="App gridContainer">
                 <TaskListContainer
                   setCompletedTasks={setCompletedTasks}
                   taskList={taskList}
@@ -63,7 +60,7 @@ function App() {
                 <Notes notesDisplay={notesDisplay} updateNotes={updateNotes} />
                 <TimeTracker />
                 <Heatmap completedTasks={completedTasks} />
-              </>
+              </div>
             }
           ></Route>
 
@@ -76,6 +73,7 @@ function App() {
                 addNewTaskToList={addNewTaskToList}
                 setNotesDisplay={setNotesDisplay}
                 completedDate={completedDate}
+                setCompletedTasks={setCompletedTasks}
               />
             }
           ></Route>

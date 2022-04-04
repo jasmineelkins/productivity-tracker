@@ -39,12 +39,6 @@ function Heatmap({ completedTasks }) {
   }));
   console.log(heatMapArray);
 
-  // will need to determine which date tasks were completed on & link - dateCompleted
-  // need to add date info to task in db (PATCH updates db when task checked) - functional but not persisting
-
-  // set color variable based on how many tasks completed
-  // let count = numberOfCompletedTasks;
-
   return (
     <div className="heatmapContainer item6">
       <RouteButton path="heatmap" />
